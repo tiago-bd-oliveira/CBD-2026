@@ -1,0 +1,10 @@
+select 2
+set x 1
+set y 2
+get x
+move y 1
+get y
+select 1
+get y
+dbsize
+flushdb

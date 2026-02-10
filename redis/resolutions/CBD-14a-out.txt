@@ -1,0 +1,12 @@
+Loading data into Redis...
+
+--- Redis cbd.Autocomplete System ---
+Type a name to search (or press Enter to quit):
+> joni
+Suggestions: joni, jonie, jonis
+> xav
+Suggestions: xaviera
+> hel
+Suggestions: helaina, helaine, helen, helen-elizabeth, helena, helene, helenelizabeth, helenka, helga, helge
+>
+Exiting...
