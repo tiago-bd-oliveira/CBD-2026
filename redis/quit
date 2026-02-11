@@ -1,0 +1,47 @@
+Script started on 2026-02-11 10:37:14+00:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="182" LINES="14"]
+[H[2J[3J[14t[1m
+
+[36m                    -`
+                   .o+`
+                  `ooo/
+                 `+oooo:
+                `+oooooo:
+                -+oooooo+:
+              `/:-:++oooo+:
+             `/++++/+++++++:
+            `/++++++++++++++:
+           `/+++o[36moooooooo[36moooo/`
+          ./[36mooosssso++osssssso[36m+`
+  [36m       .oossssso-````/ossssss+`
+        -osssssso.      :ssssssso.
+       :osssssss/        osssso+++.
+      /ossssssss/        +ssssooo/-
+    `/ossssso+/:-        -:/+osssso+-
+   `+sso+:-`                 `.-/+oso:
+  `++:.                           `-/+/
+  .`                                 `/[m[1G[20A[m[?7l[56C[m[1m[36mtiago[m@[1m[36mcubico[m
+[56C------------
+[56C[m[1m[36mOS[m: [mArch Linux x86_64
+[56C[m[1m[36mHost[m: [m83D4 (IdeaPad Pro 5 16IMH9)
+[56C[m[1m[36mKernel[m: [mLinux 6.18.8-arch2-1
+[56C[m[1m[36mUptime[m: [m1 hour, 27 mins
+[56C[m[1m[36mShell[m: [mzsh 5.9
+[56C[m[1m[36mTheme[m: [mAdwaita-Dark [Qt], Adwaita [GTK2/3/4]
+[56C[m[1m[36mIcons[m: [mbreeze-dark [Qt], Adwaita [GTK2/3/4]
+[56C[m[1m[36mTerminal[m: [mintellij-idea-ultimate-edition
+[56C[m[1m[36mCPU[m: [mIntel(R) Core(TM) Ultra 9 185H (16) @ 5.10 GHz[m
+[56C[m[1m[36mGPU[m: [mIntel Arc Graphics @ 2.35 GHz [Integrated]
+[56C[m[1m[36mMemory[m: [m7.15 GiB / 30.95 GiB ([32m23%[m)
+[56C[m[1m[36mDisk (/)[m: [m223.63 GiB / 660.69 GiB ([32m34%[m) - btrfs
+[56C[m[1m[36mLocal IP (wlan0)[m: [m10.230.197.21/24
+[56C[m[1m[36mBattery (L23X4PF1)[m: [m[32m71%[m [Discharging]
+
+
+
+
+
+[?7h[1m[7m%[27m[1m[0m                                                                                                                                                                                      ]2;tiago@cubico:~/Documents/repos/CBD-2026/redis]1;..BD-2026/redis]7;file://cubico/home/tiago/Documents/repos/CBD-2026/redis\[0m[27m[24m[J[0m[49m[39m
+[A[0m[48;5;238m[38;5;255m [0m[38;5;255m[48;5;238m[48;5;238m[38;5;255m [0m[38;5;255m[48;5;238m[48;5;238m[38;5;246m[0m[38;5;246m[48;5;238m[48;5;238m[38;5;31m  [1m[38;5;31m[48;5;238m[38;5;39m~[0m[38;5;39m[48;5;238m[48;5;238m[38;5;31m/Documents/repos/[1m[38;5;31m[48;5;238m[38;5;39mCBD-2026[0m[38;5;39m[48;5;238m[48;5;238m[38;5;31m/[1m[38;5;31m[48;5;238m[38;5;39mredis[0m[38;5;39m[48;5;238m[48;5;238m[38;5;31m[0m[38;5;31m[48;5;238m[48;5;238m[38;5;31m [0m[38;5;31m[48;5;238m[48;5;238m[38;5;246m[0m[38;5;246m[48;5;238m[48;5;238m[38;5;178m [0m[38;5;178m[48;5;238m[48;5;238m[38;5;76m[0m[38;5;76m[48;5;238m[48;5;238m[38;5;178m [38;5;76m main [38;5;178m!1 [38;5;39m?4[0m[38;5;39m[48;5;238m[48;5;238m[38;5;178m [0m[38;5;178m[48;5;238m[49m[38;5;238m[0m[38;5;238m[49m[39m                                                                                                                           [0m[49m[39m
+[0m[49m[38;5;76m❯[0m[38;5;76m[49m[38;5;76m[0m[38;5;76m[49m[30m[0m[30m[49m[39m [0m[49m[39m[K[?1h=[?2004hx[32mx[39m[32mx[39m[90mdg-open CBD2025_Lab1.pdf[39m[24D[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [25De[1m[31me[0m[39m[1m[31me[0m[39m[90mxport GROFF_NO_SGR=1[39m[20D[1m[31me[1m[31mx[0m[39m[1m[31me[1m[31mx[1m[31mi[0m[39m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [18D[90mt[39m[1m[31mi[1m[31mt[0m[39m[0m[32me[0m[32mx[0m[32mi[0m[32mt[39m[?1l>[?2004l[?25l[A[0m[27m[24m[J[0m[49m[27m[24m[38;5;76m❯[0m[38;5;76m[49m[39m[27m[24m [32mexit[39m[K[?25h
+]2;exit]1;exit
+Script done on 2026-02-11 10:37:38+00:00 [COMMAND_EXIT_CODE="0"]

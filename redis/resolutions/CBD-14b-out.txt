@@ -1,0 +1,27 @@
+--- Redis Popularity Autocomplete ---
+Type a name (or press Enter to quit):
+> Ig
+Suggestions (Ranked):
+ - Igor (35)
+ - Ignaz (1)
+> Ti
+Suggestions (Ranked):
+ - Tiago (971)
+ - Tiana (5)
+ - Tiara (5)
+ - Tierri (5)
+ - Tiffany (5)
+ - Ticiana (3)
+ - Ticiane (2)
+ - Tian (1)
+ - Tierry (1)
+ - Tilia (1)
+> Joa
+Suggestions (Ranked):
+ - Joana (625)
+ - Joaquim (75)
+ - Joabe (7)
+ - Joaninha (1)
+ - Joaquina (1)
+> 
+Exiting...

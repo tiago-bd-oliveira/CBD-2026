@@ -1,0 +1,25 @@
+--- Redis Booking System ---
+Enter your username: vivi
+
+Available commands: [book], [history], [quit]
+vivi > book
+Enter product name: Glucose
+Enter quantity: 2
+Success! Booking confirmed for 2 unit(s) of Glucose.
+
+Available commands: [book], [history], [quit]
+vivi > book
+Enter product name: Mahi Mahi
+Enter quantity: 5
+Booking Refused: This request exceeds your limit of 2 items per 30 minutes.
+
+Available commands: [book], [history], [quit]
+vivi > history
+Your Bookings (newest first):
+- ID: 3 | Product: Glucose | Qty: 2 | Time: 2026-02-11T10:51:41.183414286Z
+- ID: 2 | Product: Mahi Mahi | Qty: null | Time: 2026-02-11T10:48:41.145824401Z
+- ID: 1 | Product: Glucose | Qty: null | Time: 2026-02-11T10:48:24.054101735Z
+
+Available commands: [book], [history], [quit]
+vivi > quit
+Goodbye!
