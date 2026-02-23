@@ -1,4 +1,4 @@
-package cbd;
+package ex14;
 
 import redis.clients.jedis.Pipeline;
 import redis.clients.jedis.Response;

@@ -1,4 +1,4 @@
-package cbd;
+package ex14;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.params.ZRangeParams;
@@ -49,7 +49,7 @@ public class Autocomplete {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("\n--- Redis cbd.Autocomplete System ---");
+        System.out.println("\n--- Redis ex14.Autocomplete System ---");
         System.out.println("Type a name to search (or press Enter to quit):");
 
         boolean running = true;

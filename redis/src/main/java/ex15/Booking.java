@@ -1,4 +1,4 @@
-package cbd;
+package ex15;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.params.ZRangeParams;
@@ -7,7 +7,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.Instant;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
