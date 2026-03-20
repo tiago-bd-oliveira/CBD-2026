@@ -1,0 +1,1252 @@
+Dataset: https://www.kaggle.com/datasets/carlosgdcj/genius-song-lyrics-with-language-information
+
+The dataset that was used was a song lyric dataset. Each song is a document with a title, artist, genre tag, year, views, featured artists, and lyrics raw text. 
+
+The original dataset was huge, so I only used 500 songs. Then I did some processing to enrich the collection for queries. I split the features string into an array and split the lyrics raw text into sections with line count and type.
+
+Mongo Query Report
+Database: cbd
+Generated at: 2026-03-20T16:55:29.626Z
+
+==========================================================================================
+Query 1: find/q1.js
+Name: Find all songs that have a chorus bigger than 8 lines.
+
+Query:
+db.songs.find(
+  { 
+    lyrics: { 
+      $elemMatch: { 
+        type: "Chorus", 
+        line_count: { $gt: 8 } 
+      } 
+    } 
+  },
+  { title: 1, artist: 1, _id: 0 }
+)
+
+Result:
+[
+  {
+    title: 'Who Do You Think You Are',
+    artist: 'Guy Clark'
+  },
+  {
+    title: 'Hey Jesus',
+    artist: 'CAIN'
+  },
+  {
+    title: 'I Cant Remember',
+    artist: '5 Seconds of Summer'
+  },
+  {
+    title: 'In Other Words',
+    artist: 'Toby Keith'
+  },
+  {
+    title: 'I Got You',
+    artist: 'Cam Meekins'
+  },
+  {
+    title: 'About Time',
+    artist: '7Side'
+  },
+  {
+    title: 'Magic Touch',
+    artist: 'Yaffle & Lost Boy'
+  },
+  {
+    title: 'Watch Yo Lady',
+    artist: 'Ab-Soul'
+  },
+  {
+    title: 'Your Love',
+    artist: 'Cardiknox'
+  },
+  {
+    title: 'Näin kulutan aikaa',
+    artist: 'Eppu Normaali'
+  },
+  {
+    title: 'Top of the World Boogiesoul Remix',
+    artist: 'Brandy'
+  },
+  {
+    title: '爱不释手 Let Me Love U',
+    artist: 'WayV (V)'
+  },
+  {
+    title: 'Puzzle',
+    artist: 'guca owl'
+  },
+  {
+    title: 'Watch me pop Offical',
+    artist: 'Ripcut'
+  },
+  {
+    title: 'Body of Christ Bread of Chicken',
+    artist: 'Monti Korbelle'
+  },
+  {
+    title: 'Its Gonna Be Alright',
+    artist: 'KRETSCHER & Mevii'
+  },
+  {
+    title: 'Rescue Dog',
+    artist: 'Train'
+  },
+  {
+    title: 'Sincerely Yours',
+    artist: 'Julia May'
+  },
+  {
+    title: 'New Rules',
+    artist: 'Kurt Hugo Schneider'
+  },
+  {
+    title: 'Be With You',
+    artist: 'Jaesohn'
+  },
+  {
+    title: 'Paramount Acoustic Version 2020',
+    artist: 'Edenbridge'
+  },
+  {
+    title: 'Check',
+    artist: 'Young Thug'
+  },
+  {
+    title: 'Summer Love / Set the Mood Prelude',
+    artist: 'Justin Timberlake'
+  },
+  {
+    title: 'Cintaku Hilang',
+    artist: 'Devano Danendra'
+  },
+  {
+    title: 'Kuinka monta Ei meinaa mitään osa.2',
+    artist: 'Kriso (FIN)'
+  },
+  {
+    title: 'Devil',
+    artist: 'Papa Roach'
+  },
+  {
+    title: 'GREEN',
+    artist: 'ARN8LD'
+  },
+  {
+    title: 'PRISONER OF LOVE',
+    artist: 'Trilla Kid'
+  },
+  {
+    title: 'Weekend Walking Tigertown Remix',
+    artist: 'birthday'
+  },
+  {
+    title: 'Pavement',
+    artist: 'Marlon Craft & Yusei'
+  },
+  {
+    title: 'Who You Are',
+    artist: 'Dictionary Attack'
+  },
+  {
+    title: 'Twilight',
+    artist: 'richard. (Rapper)'
+  },
+  {
+    title: 'Sharks',
+    artist: 'Boxes'
+  },
+  {
+    title: 'Nervous',
+    artist: 'Nines'
+  },
+  {
+    title: 'Interstellar',
+    artist: 'Orden Ogan'
+  },
+  {
+    title: 'Bussdown',
+    artist: 'Headie One'
+  },
+  {
+    title: 'Red Is the New Black Live',
+    artist: 'Funeral for a Friend'
+  },
+  {
+    title: 'One on One Solo Version',
+    artist: 'Chris Brown'
+  },
+  {
+    title: 'I Cant Let Go',
+    artist: 'The Sidh'
+  },
+  {
+    title: 'PARANOIA',
+    artist: 'GARZI'
+  },
+  {
+    title: 'On a Low',
+    artist: 'Mez (UK)'
+  },
+  {
+    title: 'Seeing is Believing',
+    artist: 'Acceptance'
+  },
+  {
+    title: 'Up All Night Acoustic Version',
+    artist: 'Unwritten Law'
+  },
+  {
+    title: 'Play',
+    artist: 'Blaqbonez'
+  },
+  {
+    title: 'Oti Bere',
+    artist: 'DARKOO'
+  }
+]
+
+==========================================================================================
+Query 2: find/q2.js
+Name: Find all posse cuts.
+
+Query:
+db.songs.find(
+  { 
+    "features.2": { $exists: true } 
+  },
+  { title: 1, artist: 1, features: 1, _id: 0 }
+)
+
+Result:
+[
+  {
+    title: 'Fake Hype 3',
+    artist: 'Manuh',
+    features: [
+      'Lil Pinga',
+      'Dragon Boy\\\\$',
+      'Jag (VERSATIL)'
+    ]
+  },
+  {
+    title: 'About Time',
+    artist: '7Side',
+    features: [
+      'Hunna (7side)',
+      "Mitch'O (7Side)",
+      'Shakk (7Side)'
+    ]
+  },
+  {
+    title: 'Introduction Forecasting the Impact of Storm Waves and SeaLevel Rise on Midway Atoll and Laysan Island within the Papahānaumokuākea Marine National Monument—A Comparison of Passive Versus Dynamic Inundation Models',
+    artist: 'U.S. Geological Survey',
+    features: [
+      'Curt D. Storlazzi',
+      'Paul Berkowitz',
+      'Michelle H. Reynolds',
+      'Joshua B. Logan'
+    ]
+  },
+  {
+    title: 'No Hook',
+    artist: 156,
+    features: [
+      'Suspect (Active Gxng)',
+      'SIXTY (NGang)',
+      'Broadday (Active Gxng)'
+    ]
+  },
+  {
+    title: 'The Power of God',
+    artist: 'Silver Cave',
+    features: [
+      'Trent Rowland',
+      'Aaron Rudin',
+      'Tom Chandler'
+    ]
+  },
+  {
+    title: 'Você Sabe Quem Eu Sou',
+    artist: 'Thade & DJ Hum',
+    features: [
+      'Thaíde & DJ Hum',
+      'Paula Lima',
+      'Che Leal',
+      'Ieda Hills'
+    ]
+  },
+  {
+    title: 'F. Vallejo',
+    artist: 'Buhodermia',
+    features: [
+      'N. Bajozero',
+      'Buhodermia 夜',
+      'Carrion Carry'
+    ]
+  },
+  {
+    title: 'Hardball',
+    artist: 'Sammie',
+    features: [
+      'Lil Wayne',
+      'Bow Wow',
+      "Lil' Zane"
+    ]
+  }
+]
+
+==========================================================================================
+Query 3: find/q3.js
+Name: Find all songs with 50000 views from the artist Young Thug.
+
+Query:
+db.songs.find(
+  {
+    views: { $gt: 50000 },
+    $or: [
+      { artist: "Young Thug" },
+      { features: "Young Thug" }
+    ]
+  },
+  { title: 1, artist: 1, views: 1, _id: 0 }
+)
+
+Result:
+[
+  {
+    title: 'Check',
+    artist: 'Young Thug',
+    views: 1118449
+  }
+]
+
+==========================================================================================
+Query 4: find/q4.js
+Name: Find all pop songs from the 90s
+
+Query:
+db.songs.find(
+  {
+    year: { $gte: 1990, $lte: 1999 },
+    tag: "pop",
+  },
+  { title: 1, artist: 1, tag: 1, year: 1, views: 1, _id: 0 }
+)
+
+Result:
+[
+  {
+    title: 'Воруй Россия Steal Russia',
+    tag: 'pop',
+    artist: '(Lesopoval)',
+    year: 1992,
+    views: 38
+  },
+  {
+    title: 'Ripped Off',
+    tag: 'pop',
+    artist: 'Today Is the Day',
+    year: 1996,
+    views: 131
+  },
+  {
+    title: 'Exótica',
+    tag: 'pop',
+    artist: 'Media Naranja',
+    year: 1998,
+    views: 30
+  },
+  {
+    title: 'Dogwood Gap',
+    tag: 'pop',
+    artist: 'Songs: Ohia',
+    year: 1997,
+    views: 665
+  },
+  {
+    title: 'The Saint',
+    tag: 'pop',
+    artist: 'Thompson Twins',
+    year: 1991,
+    views: 71
+  },
+  {
+    title: 'Más palabras',
+    tag: 'pop',
+    artist: 'Jorge Gonzlez',
+    year: 1993,
+    views: 25
+  },
+  {
+    title: 'I’m a King Bee',
+    tag: 'pop',
+    artist: 'Andrs Calamaro',
+    year: 1994,
+    views: 31
+  }
+]
+
+==========================================================================================
+Query 5: find/q5.js
+Name: Find all underground rap songs from the 2020s. (less than a 1000 views)
+
+Query:
+db.songs.find(
+  {
+    year: { $gte: 2020 },
+    tag: "rap",
+    views: { $lt: 1000}
+  },
+  { title: 1, artist: 1, year: 1, views: 1, _id: 0 }
+)
+
+Result:
+[
+  {
+    title: 'Seen It All Before',
+    artist: 'Novelist',
+    year: 2020,
+    views: 168
+  },
+  {
+    title: 'Black Gold',
+    artist: 'Roman Dutch',
+    year: 2020,
+    views: 15
+  },
+  {
+    title: 'I Got You',
+    artist: 'Cam Meekins',
+    year: 2021,
+    views: 68
+  },
+  {
+    title: 'AUDI',
+    artist: 'M4LVINNA',
+    year: 2021,
+    views: 18
+  },
+  {
+    title: 'Puzzle',
+    artist: 'guca owl',
+    year: 2020,
+    views: 6
+  },
+  {
+    title: 'Gladvold',
+    artist: 'Fit Shaced',
+    year: 2021,
+    views: 3
+  },
+  {
+    title: 'Body of Christ Bread of Chicken',
+    artist: 'Monti Korbelle',
+    year: 2020,
+    views: 19
+  },
+  {
+    title: '​remedio',
+    artist: 'MANTO VASTO',
+    year: 2020,
+    views: 3
+  },
+  {
+    title: 'Cop It',
+    artist: 'Kankan',
+    year: 2020,
+    views: 312
+  },
+  {
+    title: 'New WIngz',
+    artist: 'Manny Vargas',
+    year: 2020,
+    views: 3
+  },
+  {
+    title: 'Corridas contra ti mesmo',
+    artist: 'O Partido',
+    year: 2020,
+    views: 14
+  },
+  {
+    title: 'Well Deserved',
+    artist: 'emz (chasinemz)',
+    year: 2020,
+    views: 11
+  },
+  {
+    title: 'Raz Potem Dwa',
+    artist: 'Mody Dzban',
+    year: 2020,
+    views: 212
+  },
+  {
+    title: 'The Awesome Wheelie Intro',
+    artist: 'TheNeXTGUI',
+    year: 2021,
+    views: 1
+  },
+  {
+    title: 'Мелодия для трембиты Melody for trembita',
+    artist: '(Zangezi)',
+    year: 2021,
+    views: 115
+  },
+  {
+    title: 'Distant',
+    artist: 'Onlybino!',
+    year: 2021,
+    views: 178
+  },
+  {
+    title: 'Antes de que Acabe el Verano',
+    artist: 'Blackpanda',
+    year: 2020,
+    views: 12
+  },
+  {
+    title: 'Blow Up Freestyle',
+    artist: 'Highsnob',
+    year: 2021,
+    views: 173
+  },
+  {
+    title: 'Zendaya',
+    artist: 'Pharaoh Santana',
+    year: 2021,
+    views: 11
+  },
+  {
+    title: 'Slatt Boy Anthem 5 Live or Die 2🔫',
+    artist: 'SBE Labon',
+    year: 2020,
+    views: 13
+  },
+  {
+    title: 'Peaux rouges',
+    artist: 'Olas',
+    year: 2021,
+    views: 5
+  },
+  {
+    title: 'Aint Broke Nomore',
+    artist: 'ABG Neal',
+    year: 2021,
+    views: 65
+  },
+  {
+    title: 'False Prophets',
+    artist: 'Art Smoke',
+    year: 2021,
+    views: 701
+  },
+  {
+    title: 'Не по зубам',
+    artist: 'TakeshiAkabe',
+    year: 2021,
+    views: 5
+  },
+  {
+    title: 'Se O Coração Falasse',
+    artist: 'Templo Negro',
+    year: 2020,
+    views: 9
+  },
+  {
+    title: 'Allers Retours',
+    artist: 'Asinine',
+    year: 2022,
+    views: 22
+  },
+  {
+    title: 'Lekkoduch',
+    artist: 'Pi Dwa',
+    year: 2020,
+    views: 203
+  },
+  {
+    title: 'Życiowa ruletka',
+    artist: 'Lacocamadre',
+    year: 2021,
+    views: 82
+  },
+  {
+    title: 'GOMMO-DEADLİNE',
+    artist: 'Mehmet Can Aznark',
+    year: 2021,
+    views: 11
+  },
+  {
+    title: 'NMJDS',
+    artist: 'Crushie, Jan Z & Lil Anuar',
+    year: 2022,
+    views: 18
+  },
+  {
+    title: 'Bussdown',
+    artist: 'Headie One',
+    year: 2021,
+    views: 896
+  },
+  {
+    title: 'My Lane',
+    artist: 'Bay Boy',
+    year: 2020,
+    views: 14
+  },
+  {
+    title: 'Dank Thots',
+    artist: 'King Tweaky',
+    year: 2020,
+    views: 18
+  },
+  {
+    title: 'Wait',
+    artist: 'Yung Lapras',
+    year: 2020,
+    views: 58
+  },
+  {
+    title: 'Lunar Escape Interlude',
+    artist: 'Thomson Nasser',
+    year: 2021,
+    views: 14
+  },
+  {
+    title: '​​​​bite marks',
+    artist: 'year08',
+    year: 2022,
+    views: 3
+  },
+  {
+    title: 'Werewolf',
+    artist: 'Squito Babe',
+    year: 2021,
+    views: 31
+  },
+  {
+    title: '25h8dAv. 10 de Dezembro',
+    artist: 'K Dirrty 8:30',
+    year: 2020,
+    views: 17
+  },
+  {
+    title: 'OK',
+    artist: 'XX3NO',
+    year: 2021,
+    views: 22
+  },
+  {
+    title: 'Kv$h',
+    artist: 'Lean Ghoul',
+    year: 2020,
+    views: 2
+  },
+  {
+    title: 'Cleanem Good Bathtime Song',
+    artist: 'Uzi FastMag',
+    year: 2023,
+    views: 9
+  },
+  {
+    title: 'Hells where all the good boys go 2',
+    artist: 'Gummy3',
+    year: 2021,
+    views: 2
+  },
+  {
+    title: 'IM OKAY',
+    artist: 'MC HEAT',
+    year: 2021,
+    views: 3
+  },
+  {
+    title: 'Oti Bere',
+    artist: 'DARKOO',
+    year: 2021,
+    views: 392
+  },
+  {
+    title: 'Флэнг Flang',
+    artist: 'RYSO',
+    year: 2020,
+    views: 14
+  },
+  {
+    title: 'Procuro',
+    artist: '.pg (Card Principal)',
+    year: 2020,
+    views: 5
+  },
+  {
+    title: 'Bulletproof',
+    artist: 'Swift Guad',
+    year: 2021,
+    views: 200
+  }
+]
+
+==========================================================================================
+Query 6: find/q6.js
+Name: Find all rap songs in English with more than 1000 views that have a verse containing the word "devil" (case-insensitive).
+
+Query:
+db.songs.find(
+  {
+    language: "en",
+    tag: "rap",
+    views: { $gt: 1000 },
+    lyrics: {
+      $elemMatch: {
+        type: "Verse",
+        content: { $regex: /(\bdevil[\s\S]*?)/i }
+      }
+    }
+  },
+  {
+    title: 1,
+    artist: 1,
+    language: 1,
+    "lyrics.$": 1, 
+    _id: 0
+  }
+)
+
+Result:
+[
+  {
+    title: 'WAIT FOR ME',
+    artist: 'MIKE',
+    lyrics: [
+      {
+        section_id: 1,
+        type: 'Verse',
+        line_count: 24,
+        content: '[Verse]\n' +
+          'Ay, ay, been pushed to the side\n' +
+          'Want me to look in your eyes, nigga\n' +
+          "I can't even look in the mirror\n" +
+          'I been lost in my mind with the devil screaming\n' +
+          'Hoping that you hear it\n' +
+          'Wash my soul away in the ocean with the spirits\n' +
+          "I be focused 'cause I'm near it\n" +
+          "6'3 black boy, judge me off appearance\n" +
+          "But I'm way too grown to be running them errands\n" +
+          "I don't know what's colder\n" +
+          'My heart or my reflection in this puddle that I stare in\n' +
+          'Subtle when he air you\n' +
+          'I popped the bubble, now these niggas feeling scared\n' +
+          "A lot of trouble with this pigment that I'm wearing\n" +
+          "And not for nothing, niggas isn't what I'm hearing\n" +
+          "'Cause I know a lot of niggas didn't wanna see me here\n" +
+          "But I'm here so how I'm gonna play it when the game done?\n" +
+          "And where I'm gon' be sitting when the chair fall?\n" +
+          'I bet we sitting underneath the same sun\n' +
+          'We might not really be together right now\n' +
+          'But maybe I could reach you when the day done\n' +
+          'So if you wanna see me, you should say some\n' +
+          'So if you wanna see me, you should say some\n' +
+          'Please, if you wanna see me, you should say some'
+      }
+    ],
+    language: 'en'
+  }
+]
+
+==========================================================================================
+Query 7: aggregate/q1.js
+Name: Top 10 artists by average views (minimum 2 songs).
+
+Query:
+db.songs.aggregate([
+  {
+    $group: {
+      _id: "$artist",
+      song_count: { $sum: 1 },
+      avg_views: { $avg: "$views" }
+    }
+  },
+  {
+    $match: {
+      song_count: { $gte: 2 }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      artist: "$_id",
+      song_count: 1,
+      avg_views: { $round: ["$avg_views", 2] }
+    }
+  },
+  { $sort: { avg_views: -1 } },
+  { $limit: 10 }
+])
+
+Result:
+[
+  {
+    song_count: 2,
+    artist: '(Valentin Dyadka)',
+    avg_views: 936
+  },
+  {
+    song_count: 3,
+    artist: 'Genius Romanizations',
+    avg_views: 244
+  },
+  {
+    song_count: 2,
+    artist: 'Charles Dickens',
+    avg_views: 35.5
+  },
+  {
+    song_count: 2,
+    artist: 'Anton Chekhov',
+    avg_views: 28.5
+  },
+  {
+    song_count: 2,
+    artist: 'Giovanni Boccaccio',
+    avg_views: 11.5
+  }
+]
+
+==========================================================================================
+Query 8: aggregate/q2.js
+Name: Number of songs per genre tag.
+
+Query:
+db.songs.aggregate([
+  {
+    $group: {
+      _id: "$tag",
+      total_songs: { $sum: 1 }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      tag: "$_id",
+      total_songs: 1
+    }
+  },
+  { $sort: { total_songs: -1 } }
+])
+
+Result:
+[
+  {
+    total_songs: 191,
+    tag: 'rap'
+  },
+  {
+    total_songs: 152,
+    tag: 'pop'
+  },
+  {
+    total_songs: 78,
+    tag: 'rock'
+  },
+  {
+    total_songs: 52,
+    tag: 'misc'
+  },
+  {
+    total_songs: 17,
+    tag: 'rb'
+  },
+  {
+    total_songs: 10,
+    tag: 'country'
+  }
+]
+
+==========================================================================================
+Query 9: aggregate/q3.js
+Name: Most frequent featured artists across songs.
+
+Query:
+db.songs.aggregate([
+  { $unwind: "$features" },
+  {
+    $group: {
+      _id: "$features",
+      appearances: { $sum: 1 }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      featured_artist: "$_id",
+      appearances: 1
+    }
+  },
+  { $sort: { appearances: -1 } },
+  { $limit: 15 }
+])
+
+Result:
+[
+  {
+    appearances: 3,
+    featured_artist: 'Constance Garnett'
+  },
+  {
+    appearances: 2,
+    featured_artist: 'Валентин Дядька (Valentin Dyadka)'
+  },
+  {
+    appearances: 2,
+    featured_artist: 'Bow Wow'
+  },
+  {
+    appearances: 1,
+    featured_artist: '​ambeats'
+  },
+  {
+    appearances: 1,
+    featured_artist: 'N. Bajozero'
+  },
+  {
+    appearances: 1,
+    featured_artist: 'Delhia de France'
+  },
+  {
+    appearances: 1,
+    featured_artist: "Lil' Zane"
+  },
+  {
+    appearances: 1,
+    featured_artist: 'Белькин (Belkin)'
+  },
+  {
+    appearances: 1,
+    featured_artist: 'Shakka'
+  },
+  {
+    appearances: 1,
+    featured_artist: 'Mehmet Can Azınarık'
+  },
+  {
+    appearances: 1,
+    featured_artist: 'Gus G.'
+  },
+  {
+    appearances: 1,
+    featured_artist: 'Штар (Shtar Group)'
+  },
+  {
+    appearances: 1,
+    featured_artist: 'Mýa'
+  },
+  {
+    appearances: 1,
+    featured_artist: 'Jorge González'
+  },
+  {
+    appearances: 1,
+    featured_artist: '​birthday'
+  }
+]
+
+==========================================================================================
+Query 10: aggregate/q4.js
+Name: Average views by decade.
+
+Query:
+db.songs.aggregate([
+  {
+    $addFields: {
+      decade: {
+        $concat: [
+          { $toString: { $multiply: [{ $floor: { $divide: ["$year", 10] } }, 10] } },
+          "s"
+        ]
+      }
+    }
+  },
+  {
+    $group: {
+      _id: "$decade",
+      avg_views: { $avg: "$views" },
+      total_songs: { $sum: 1 }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      decade: "$_id",
+      total_songs: 1,
+      avg_views: { $round: ["$avg_views", 2] }
+    }
+  },
+  { $sort: { decade: 1 } }
+])
+
+Result:
+[
+  {
+    total_songs: 1,
+    decade: '0s',
+    avg_views: 15059
+  },
+  {
+    total_songs: 1,
+    decade: '1350s',
+    avg_views: 6
+  },
+  {
+    total_songs: 1,
+    decade: '1610s',
+    avg_views: 22
+  },
+  {
+    total_songs: 1,
+    decade: '1820s',
+    avg_views: 66
+  },
+  {
+    total_songs: 2,
+    decade: '1830s',
+    avg_views: 35.5
+  },
+  {
+    total_songs: 2,
+    decade: '1840s',
+    avg_views: 1353.5
+  },
+  {
+    total_songs: 1,
+    decade: '1860s',
+    avg_views: 13
+  },
+  {
+    total_songs: 3,
+    decade: '1870s',
+    avg_views: 72.33
+  },
+  {
+    total_songs: 3,
+    decade: '1880s',
+    avg_views: 18.33
+  },
+  {
+    total_songs: 1,
+    decade: '1890s',
+    avg_views: 9
+  },
+  {
+    total_songs: 1,
+    decade: '1900s',
+    avg_views: 10956
+  },
+  {
+    total_songs: 1,
+    decade: '1910s',
+    avg_views: 62
+  },
+  {
+    total_songs: 1,
+    decade: '1920s',
+    avg_views: 31
+  },
+  {
+    total_songs: 1,
+    decade: '1930s',
+    avg_views: 13
+  },
+  {
+    total_songs: 1,
+    decade: '1950s',
+    avg_views: 87
+  },
+  {
+    total_songs: 5,
+    decade: '1960s',
+    avg_views: 48.6
+  },
+  {
+    total_songs: 3,
+    decade: '1970s',
+    avg_views: 4053
+  },
+  {
+    total_songs: 12,
+    decade: '1980s',
+    avg_views: 1566.08
+  },
+  {
+    total_songs: 18,
+    decade: '1990s',
+    avg_views: 257.22
+  },
+  {
+    total_songs: 48,
+    decade: '2000s',
+    avg_views: 2111.92
+  },
+  {
+    total_songs: 271,
+    decade: '2010s',
+    avg_views: 8657.24
+  },
+  {
+    total_songs: 122,
+    decade: '2020s',
+    avg_views: 698.03
+  }
+]
+
+==========================================================================================
+Query 11: aggregate/q5.js
+Name: Songs with the highest total lyric line count.
+
+Query:
+db.songs.aggregate([
+  {
+    $project: {
+      _id: 0,
+      title: 1,
+      artist: 1,
+      year: 1,
+      total_lines: {
+        $sum: "$lyrics.line_count"
+      }
+    }
+  },
+  { $sort: { total_lines: -1 } },
+  { $limit: 10 }
+])
+
+Result:
+[
+  {
+    title: 'The Canterbury Tales: The Millers Tale in Middle English',
+    artist: 'Geoffrey Chaucer',
+    year: 2014,
+    total_lines: 670
+  },
+  {
+    title: 'Scenes From The Faust Of Goethe Scene 2',
+    artist: 'Percy Bysshe Shelley',
+    year: 2013,
+    total_lines: 518
+  },
+  {
+    title: '19/05/16: VS94SKI vs. Белькин',
+    artist: '#SLOVOSPB',
+    year: 2016,
+    total_lines: 345
+  },
+  {
+    title: 'The Alchemist Act 5 Scene 2',
+    artist: 'Ben Jonson',
+    year: 1610,
+    total_lines: 325
+  },
+  {
+    title: 'Charlotte Perkins Gilman’s “The Yellow Wallpaper” 3',
+    artist: 'Ccasson',
+    year: 2015,
+    total_lines: 278
+  },
+  {
+    title: 'Chapter 13: The Socialist Challenge',
+    artist: 'Howard Zinn',
+    year: 1980,
+    total_lines: 278
+  },
+  {
+    title: 'So Can I',
+    artist: 'Jessica Mechell',
+    year: 2018,
+    total_lines: 159
+  },
+  {
+    title: 'Draped Up',
+    artist: 'The Jibster',
+    year: 2017,
+    total_lines: 140
+  },
+  {
+    title: 'Women in Love Chap. 3',
+    artist: 'D. H. Lawrence',
+    year: 1920,
+    total_lines: 138
+  },
+  {
+    title: 'My Lane',
+    artist: 'Bay Boy',
+    year: 2020,
+    total_lines: 131
+  }
+]
+
+==========================================================================================
+Query 12: aggregate/q6.js
+Name: Average chorus line count by genre tag.
+
+Query:
+db.songs.aggregate([
+  { $unwind: "$lyrics" },
+  {
+    $match: {
+      "lyrics.type": "Chorus"
+    }
+  },
+  {
+    $group: {
+      _id: "$tag",
+      avg_chorus_lines: { $avg: "$lyrics.line_count" },
+      chorus_sections: { $sum: 1 }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      tag: "$_id",
+      chorus_sections: 1,
+      avg_chorus_lines: { $round: ["$avg_chorus_lines", 2] }
+    }
+  },
+  { $sort: { avg_chorus_lines: -1 } }
+])
+
+Result:
+[
+  {
+    chorus_sections: 2,
+    tag: 'misc',
+    avg_chorus_lines: 25
+  },
+  {
+    chorus_sections: 52,
+    tag: 'rap',
+    avg_chorus_lines: 9.04
+  },
+  {
+    chorus_sections: 11,
+    tag: 'rb',
+    avg_chorus_lines: 8.09
+  },
+  {
+    chorus_sections: 38,
+    tag: 'rock',
+    avg_chorus_lines: 7.39
+  },
+  {
+    chorus_sections: 65,
+    tag: 'pop',
+    avg_chorus_lines: 7.18
+  },
+  {
+    chorus_sections: 7,
+    tag: 'country',
+    avg_chorus_lines: 6.86
+  }
+]

@@ -1,0 +1,35 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------------< cbd:lab2_4 >-----------------------------
+[INFO] Building lab2_4 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ lab2_4 ---
+[INFO] Copying 0 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ lab2_4 ---
+[INFO] Recompiling the module because of added or removed source files.
+[INFO] Compiling 1 source file with javac [debug target 25] to target/classes
+[INFO] 
+[INFO] --- exec:3.1.0:java (default-cli) @ lab2_4 ---
+--- Starting Test: Window 1 ---
+[SUCCESS] Product 'Mechanical Keyboard' recorded for user: tech_enthusiast_99
+[SUCCESS] Product 'Gaming Mouse' recorded for user: tech_enthusiast_99
+[SUCCESS] Product 'Ultrawide Monitor' recorded for user: tech_enthusiast_99
+
+--- Waiting for next timeslot (5s) ---
+--- Starting Test: Window 2 (Limit Reset) ---
+[SUCCESS] Product 'Webcam' recorded for user: tech_enthusiast_99
+[ERROR] Limit exceeded for user 'tech_enthusiast_99'. Max allowed: 10 per 5s.
+[ERROR] Limit exceeded for user 'tech_enthusiast_99'. Max allowed: 10 per 5s.
+
+[WARNING] thread Thread[#78,BufferPoolPruner-1-thread-1,5,ProductManager] was interrupted but is still alive after waiting at least 15000msecs
+[WARNING] thread Thread[#78,BufferPoolPruner-1-thread-1,5,ProductManager] will linger despite being asked to die via interruption
+[WARNING] NOTE: 1 thread(s) did not finish despite being asked to via interruption. This is not a problem with exec:java, it is a problem with the running code. Although not serious, it should be remedied.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  22.271 s
+[INFO] Finished at: 2026-03-19T22:21:31Z
+[INFO] ------------------------------------------------------------------------
