@@ -1,10 +1,11 @@
-// Find all underground rap songs from the 2020s. (less than a 1000 views)
+// Find all non-english underground (< 100000 views) rap songs from the 2010s.
 
 db.songs.find(
   {
-    year: { $gte: 2020 },
+    year: { $gte: 2010, $lt: 2020 },
     tag: "rap",
-    views: { $lt: 1000}
+    views: { $lt: 100000 },
+    language: { $ne: "en" }
   },
-  { title: 1, artist: 1, year: 1, views: 1, _id: 0 }
-)
+  { title: 1, artist: 1, year: 1, views: 1, language: 1, _id: 0 }
+).limit(10)

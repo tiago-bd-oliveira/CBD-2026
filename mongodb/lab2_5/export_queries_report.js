@@ -4,9 +4,37 @@ const { spawnSync } = require("child_process");
 
 const baseDir = __dirname;
 const outputFile = path.join(baseDir, "queries_report.txt");
-const dbName = process.argv[2] || "cbd";
+const dbInput = process.argv[2] || "cbd";
 
 const queryFolders = ["find", "aggregate"];
+
+function escapeJsString(value) {
+  return String(value).replace(/\\/g, "\\\\").replace(/'/g, "\\'");
+}
+
+function parseDbConfig(input) {
+  const value = String(input || "").trim();
+
+  if (/^mongodb(\+srv)?:\/\//i.test(value)) {
+    try {
+      const url = new URL(value);
+      const dbNameFromPath = url.pathname.replace(/^\//, "") || "cbd";
+      return {
+        display: value,
+        dbName: dbNameFromPath,
+        mongoshArgs: [value],
+      };
+    } catch (error) {
+      throw new Error(`Invalid MongoDB URI: ${value}`);
+    }
+  }
+
+  return {
+    display: value,
+    dbName: value || "cbd",
+    mongoshArgs: [],
+  };
+}
 
 function naturalSort(a, b) {
   return a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" });
@@ -29,9 +57,9 @@ function getQueryBody(content) {
     .trim();
 }
 
-function runQueryText(queryBody, db) {
+function runQueryText(queryBody, dbConfig) {
   const script = [
-    `db = db.getSiblingDB('${db}');`,
+    `db = db.getSiblingDB('${escapeJsString(dbConfig.dbName)}');`,
     `const __result = (${queryBody});`,
     `if (__result && typeof __result.toArray === 'function') {`,
     `  printjson(__result.toArray());`,
@@ -40,7 +68,7 @@ function runQueryText(queryBody, db) {
     `}`,
   ].join("\n");
 
-  const args = ["--quiet", "--eval", script];
+  const args = [...dbConfig.mongoshArgs, "--quiet", "--eval", script];
 
   const result = spawnSync("mongosh", args, { encoding: "utf8" });
 
@@ -90,6 +118,7 @@ function collectQueryFiles() {
 }
 
 function main() {
+  const dbConfig = parseDbConfig(dbInput);
   const queryFiles = collectQueryFiles();
 
   if (queryFiles.length === 0) {
@@ -99,7 +128,8 @@ function main() {
 
   const report = [];
   report.push(`Mongo Query Report`);
-  report.push(`Database: ${dbName}`);
+  report.push(`Database: ${dbConfig.display}`);
+  report.push(`Resolved DB Name: ${dbConfig.dbName}`);
   report.push(`Generated at: ${new Date().toISOString()}`);
   report.push("");
 
@@ -107,7 +137,7 @@ function main() {
     const content = fs.readFileSync(file.filePath, "utf8");
     const queryTitle = getFirstCommentLine(content);
     const queryBody = getQueryBody(content);
-    const execution = runQueryText(queryBody, dbName);
+    const execution = runQueryText(queryBody, dbConfig);
 
     report.push("=".repeat(90));
     report.push(`Query ${index + 1}: ${file.folder}/${file.fileName}`);

@@ -10,4 +10,4 @@ db.songs.find(
     } 
   },
   { title: 1, artist: 1, _id: 0 }
-)
+).limit(10)

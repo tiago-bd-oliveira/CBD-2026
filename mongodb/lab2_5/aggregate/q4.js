@@ -26,5 +26,9 @@ db.songs.aggregate([
       avg_views: { $round: ["$avg_views", 2] }
     }
   },
-  { $sort: { decade: 1 } }
+  {
+    $sort: {
+      "avg_views": -1
+    }
+  },
 ])

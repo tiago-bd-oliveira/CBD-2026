@@ -4,9 +4,34 @@ The dataset that was used was a song lyric dataset. Each song is a document with
 
 The original dataset was huge, so I only used 500 songs. Then I did some processing to enrich the collection for queries. I split the features string into an array and split the lyrics raw text into sections with line count and type.
 
+This was the final structure of the documents
+{
+  _id: ObjectId,
+  title: str,
+  tag: str,
+  artist: str,
+  year: int,
+  views: int,
+  features: str[],
+  lyrics: [
+    {
+      section_id: int,
+      type: str,
+      line_count: int,
+      content: str
+    }
+  ],
+  id: str,
+  language_cld3: str,
+  language_ft: str,
+  language: str,
+  processed_at: ISODate
+}
+
 Mongo Query Report
-Database: cbd
-Generated at: 2026-03-20T16:55:29.626Z
+Database: mongodb://localhost:27017/cbd
+Resolved DB Name: cbd
+Generated at: 2026-03-23T13:10:55.427Z
 
 ==========================================================================================
 Query 1: find/q1.js
@@ -23,189 +48,49 @@ db.songs.find(
     } 
   },
   { title: 1, artist: 1, _id: 0 }
-)
+).limit(10)
 
 Result:
 [
   {
-    title: 'Who Do You Think You Are',
-    artist: 'Guy Clark'
+    title: 'Killa Cam',
+    artist: "Cam'ron"
   },
   {
-    title: 'Hey Jesus',
-    artist: 'CAIN'
+    title: 'Lord You Know',
+    artist: "Cam'ron"
   },
   {
-    title: 'I Cant Remember',
-    artist: '5 Seconds of Summer'
+    title: 'Lollipop Remix',
+    artist: 'Lil Wayne'
   },
   {
-    title: 'In Other Words',
-    artist: 'Toby Keith'
+    title: 'Family Ties',
+    artist: "Cam'ron"
   },
   {
-    title: 'I Got You',
-    artist: 'Cam Meekins'
+    title: 'Its Hot Some Like It Hot',
+    artist: 'JAY-Z'
   },
   {
-    title: 'About Time',
-    artist: '7Side'
+    title: 'Losing Weight Pt. 2',
+    artist: "Cam'ron"
   },
   {
-    title: 'Magic Touch',
-    artist: 'Yaffle & Lost Boy'
+    title: 'Mr. Carter',
+    artist: 'Lil Wayne'
   },
   {
-    title: 'Watch Yo Lady',
-    artist: 'Ab-Soul'
+    title: 'Broads',
+    artist: 'Big Tymers'
   },
   {
-    title: 'Your Love',
-    artist: 'Cardiknox'
+    title: 'Fireman',
+    artist: 'Lil Wayne'
   },
   {
-    title: 'Näin kulutan aikaa',
-    artist: 'Eppu Normaali'
-  },
-  {
-    title: 'Top of the World Boogiesoul Remix',
-    artist: 'Brandy'
-  },
-  {
-    title: '爱不释手 Let Me Love U',
-    artist: 'WayV (V)'
-  },
-  {
-    title: 'Puzzle',
-    artist: 'guca owl'
-  },
-  {
-    title: 'Watch me pop Offical',
-    artist: 'Ripcut'
-  },
-  {
-    title: 'Body of Christ Bread of Chicken',
-    artist: 'Monti Korbelle'
-  },
-  {
-    title: 'Its Gonna Be Alright',
-    artist: 'KRETSCHER & Mevii'
-  },
-  {
-    title: 'Rescue Dog',
-    artist: 'Train'
-  },
-  {
-    title: 'Sincerely Yours',
-    artist: 'Julia May'
-  },
-  {
-    title: 'New Rules',
-    artist: 'Kurt Hugo Schneider'
-  },
-  {
-    title: 'Be With You',
-    artist: 'Jaesohn'
-  },
-  {
-    title: 'Paramount Acoustic Version 2020',
-    artist: 'Edenbridge'
-  },
-  {
-    title: 'Check',
-    artist: 'Young Thug'
-  },
-  {
-    title: 'Summer Love / Set the Mood Prelude',
-    artist: 'Justin Timberlake'
-  },
-  {
-    title: 'Cintaku Hilang',
-    artist: 'Devano Danendra'
-  },
-  {
-    title: 'Kuinka monta Ei meinaa mitään osa.2',
-    artist: 'Kriso (FIN)'
-  },
-  {
-    title: 'Devil',
-    artist: 'Papa Roach'
-  },
-  {
-    title: 'GREEN',
-    artist: 'ARN8LD'
-  },
-  {
-    title: 'PRISONER OF LOVE',
-    artist: 'Trilla Kid'
-  },
-  {
-    title: 'Weekend Walking Tigertown Remix',
-    artist: 'birthday'
-  },
-  {
-    title: 'Pavement',
-    artist: 'Marlon Craft & Yusei'
-  },
-  {
-    title: 'Who You Are',
-    artist: 'Dictionary Attack'
-  },
-  {
-    title: 'Twilight',
-    artist: 'richard. (Rapper)'
-  },
-  {
-    title: 'Sharks',
-    artist: 'Boxes'
-  },
-  {
-    title: 'Nervous',
-    artist: 'Nines'
-  },
-  {
-    title: 'Interstellar',
-    artist: 'Orden Ogan'
-  },
-  {
-    title: 'Bussdown',
-    artist: 'Headie One'
-  },
-  {
-    title: 'Red Is the New Black Live',
-    artist: 'Funeral for a Friend'
-  },
-  {
-    title: 'One on One Solo Version',
-    artist: 'Chris Brown'
-  },
-  {
-    title: 'I Cant Let Go',
-    artist: 'The Sidh'
-  },
-  {
-    title: 'PARANOIA',
-    artist: 'GARZI'
-  },
-  {
-    title: 'On a Low',
-    artist: 'Mez (UK)'
-  },
-  {
-    title: 'Seeing is Believing',
-    artist: 'Acceptance'
-  },
-  {
-    title: 'Up All Night Acoustic Version',
-    artist: 'Unwritten Law'
-  },
-  {
-    title: 'Play',
-    artist: 'Blaqbonez'
-  },
-  {
-    title: 'Oti Bere',
-    artist: 'DARKOO'
+    title: 'Back That Azz Up',
+    artist: 'Juvenile'
   }
 ]
 
@@ -216,111 +101,140 @@ Name: Find all posse cuts.
 Query:
 db.songs.find(
   { 
+    "tag": "rap",
     "features.2": { $exists: true } 
   },
   { title: 1, artist: 1, features: 1, _id: 0 }
-)
+).limit(10)
 
 Result:
 [
   {
-    title: 'Fake Hype 3',
-    artist: 'Manuh',
+    title: 'Down and Out',
+    artist: "Cam'ron",
     features: [
-      'Lil Pinga',
-      'Dragon Boy\\\\$',
-      'Jag (VERSATIL)'
+      "Cam'ron",
+      'Kanye West',
+      'Syleena Johnson'
     ]
   },
   {
-    title: 'About Time',
-    artist: '7Side',
-    features: [
-      'Hunna (7side)',
-      "Mitch'O (7Side)",
-      'Shakk (7Side)'
-    ]
-  },
-  {
-    title: 'Introduction Forecasting the Impact of Storm Waves and SeaLevel Rise on Midway Atoll and Laysan Island within the Papahānaumokuākea Marine National Monument—A Comparison of Passive Versus Dynamic Inundation Models',
-    artist: 'U.S. Geological Survey',
-    features: [
-      'Curt D. Storlazzi',
-      'Paul Berkowitz',
-      'Michelle H. Reynolds',
-      'Joshua B. Logan'
-    ]
-  },
-  {
-    title: 'No Hook',
-    artist: 156,
-    features: [
-      'Suspect (Active Gxng)',
-      'SIXTY (NGang)',
-      'Broadday (Active Gxng)'
-    ]
-  },
-  {
-    title: 'The Power of God',
-    artist: 'Silver Cave',
-    features: [
-      'Trent Rowland',
-      'Aaron Rudin',
-      'Tom Chandler'
-    ]
-  },
-  {
-    title: 'Você Sabe Quem Eu Sou',
-    artist: 'Thade & DJ Hum',
-    features: [
-      'Thaíde & DJ Hum',
-      'Paula Lima',
-      'Che Leal',
-      'Ieda Hills'
-    ]
-  },
-  {
-    title: 'F. Vallejo',
-    artist: 'Buhodermia',
-    features: [
-      'N. Bajozero',
-      'Buhodermia 夜',
-      'Carrion Carry'
-    ]
-  },
-  {
-    title: 'Hardball',
-    artist: 'Sammie',
+    title: 'Make It Rain Remix',
+    artist: 'Fat Joe',
     features: [
       'Lil Wayne',
-      'Bow Wow',
-      "Lil' Zane"
+      'Rick Ross',
+      'DJ Khaled',
+      'R. Kelly',
+      'Ace Mac'
+    ]
+  },
+  {
+    title: 'Real Nis',
+    artist: 'The Diplomats',
+    features: [
+      "Cam'ron",
+      'Juelz Santana',
+      'Jim Jones'
+    ]
+  },
+  {
+    title: 'Get By Remix',
+    artist: 'Talib Kweli',
+    features: [
+      'Kanye West',
+      'Yasiin Bey',
+      'Busta Rhymes'
+    ]
+  },
+  {
+    title: 'Crunk Muzik',
+    artist: 'The Diplomats',
+    features: [
+      "Cam'ron",
+      'Juelz Santana',
+      'Jim Jones'
+    ]
+  },
+  {
+    title: 'Back in the Mudd Zone 4 Remix',
+    artist: 'Bubba Sparxxx',
+    features: [
+      'Rich Boy',
+      'Sean Paul',
+      'Pastor Troy'
+    ]
+  },
+  {
+    title: 'We Takin Over',
+    artist: 'DJ Khaled',
+    features: [
+      'Lil Wayne',
+      'Fat Joe',
+      'Rick Ross'
+    ]
+  },
+  {
+    title: '24 Hours to Live',
+    artist: 'Ma$e',
+    features: [
+      'Black Rob',
+      'The LOX',
+      'Ma\\\\$e'
+    ]
+  },
+  {
+    title: 'Doggy Dogg World',
+    artist: 'Snoop Dogg',
+    features: [
+      'The Dramatics',
+      'Tha Dogg Pound',
+      'Nanci Fletcher'
+    ]
+  },
+  {
+    title: 'Watagatapitusberry Remix',
+    artist: 'Pitbull',
+    features: [
+      'Lil Jon',
+      'Black Jonas Point',
+      'El Cata'
     ]
   }
 ]
 
 ==========================================================================================
 Query 3: find/q3.js
-Name: Find all songs with 50000 views from the artist Young Thug.
+Name: Find all hits (songs with more than 1000000 views) from the artist JAY-Z.
 
 Query:
 db.songs.find(
   {
-    views: { $gt: 50000 },
+    views: { $gt: 1000000 },
     $or: [
-      { artist: "Young Thug" },
-      { features: "Young Thug" }
+      { artist: "JAY-Z" },
+      { features: "JAY-Z" }
     ]
   },
   { title: 1, artist: 1, views: 1, _id: 0 }
-)
+).limit(10)
 
 Result:
 [
   {
-    title: 'Check',
-    artist: 'Young Thug',
-    views: 1118449
+    title: 'Empire State of Mind',
+    artist: 'JAY-Z',
+    views: 2424632
+  },
+  {
+    title: 'Renegade',
+    artist: 'JAY-Z',
+    views: 1164393
+  },
+  {
+    title: '99 Problems',
+    artist: 'JAY-Z',
+    views: 1216032
   }
 ]
 
@@ -335,422 +249,395 @@ db.songs.find(
     tag: "pop",
   },
   { title: 1, artist: 1, tag: 1, year: 1, views: 1, _id: 0 }
-)
+).limit(10)
 
 Result:
 [
   {
-    title: 'Воруй Россия Steal Russia',
+    title: 'Paper Bag',
     tag: 'pop',
-    artist: '(Lesopoval)',
-    year: 1992,
-    views: 38
-  },
-  {
-    title: 'Ripped Off',
-    tag: 'pop',
-    artist: 'Today Is the Day',
-    year: 1996,
-    views: 131
-  },
-  {
-    title: 'Exótica',
-    tag: 'pop',
-    artist: 'Media Naranja',
-    year: 1998,
-    views: 30
-  },
-  {
-    title: 'Dogwood Gap',
-    tag: 'pop',
-    artist: 'Songs: Ohia',
-    year: 1997,
-    views: 665
-  },
-  {
-    title: 'The Saint',
-    tag: 'pop',
-    artist: 'Thompson Twins',
-    year: 1991,
-    views: 71
-  },
-  {
-    title: 'Más palabras',
-    tag: 'pop',
-    artist: 'Jorge Gonzlez',
-    year: 1993,
-    views: 25
-  },
-  {
-    title: 'I’m a King Bee',
-    tag: 'pop',
-    artist: 'Andrs Calamaro',
-    year: 1994,
-    views: 31
+    artist: 'Fiona Apple',
+    year: 1999,
+    views: 169984
   }
 ]
 
 ==========================================================================================
 Query 5: find/q5.js
-Name: Find all underground rap songs from the 2020s. (less than a 1000 views)
+Name: Find all non-english underground (< 100000 views) rap songs from the 2010s.
 
 Query:
 db.songs.find(
   {
-    year: { $gte: 2020 },
+    year: { $gte: 2010, $lt: 2020 },
     tag: "rap",
-    views: { $lt: 1000}
+    views: { $lt: 100000 },
+    language: { $ne: "en" }
   },
-  { title: 1, artist: 1, year: 1, views: 1, _id: 0 }
-)
+  { title: 1, artist: 1, year: 1, views: 1, language: 1, _id: 0 }
+).limit(10)
 
 Result:
 [
   {
-    title: 'Seen It All Before',
-    artist: 'Novelist',
-    year: 2020,
-    views: 168
+    title: 'Watagatapitusberry Remix',
+    artist: 'Pitbull',
+    year: 2010,
+    views: 23034,
+    language: ''
   },
   {
-    title: 'Black Gold',
-    artist: 'Roman Dutch',
-    year: 2020,
-    views: 15
-  },
-  {
-    title: 'I Got You',
-    artist: 'Cam Meekins',
-    year: 2021,
-    views: 68
-  },
-  {
-    title: 'AUDI',
-    artist: 'M4LVINNA',
-    year: 2021,
-    views: 18
-  },
-  {
-    title: 'Puzzle',
-    artist: 'guca owl',
-    year: 2020,
-    views: 6
-  },
-  {
-    title: 'Gladvold',
-    artist: 'Fit Shaced',
-    year: 2021,
-    views: 3
-  },
-  {
-    title: 'Body of Christ Bread of Chicken',
-    artist: 'Monti Korbelle',
-    year: 2020,
-    views: 19
-  },
-  {
-    title: '​remedio',
-    artist: 'MANTO VASTO',
-    year: 2020,
-    views: 3
-  },
-  {
-    title: 'Cop It',
-    artist: 'Kankan',
-    year: 2020,
-    views: 312
-  },
-  {
-    title: 'New WIngz',
-    artist: 'Manny Vargas',
-    year: 2020,
-    views: 3
-  },
-  {
-    title: 'Corridas contra ti mesmo',
-    artist: 'O Partido',
-    year: 2020,
-    views: 14
-  },
-  {
-    title: 'Well Deserved',
-    artist: 'emz (chasinemz)',
-    year: 2020,
-    views: 11
-  },
-  {
-    title: 'Raz Potem Dwa',
-    artist: 'Mody Dzban',
-    year: 2020,
-    views: 212
-  },
-  {
-    title: 'The Awesome Wheelie Intro',
-    artist: 'TheNeXTGUI',
-    year: 2021,
-    views: 1
-  },
-  {
-    title: 'Мелодия для трембиты Melody for trembita',
-    artist: '(Zangezi)',
-    year: 2021,
-    views: 115
-  },
-  {
-    title: 'Distant',
-    artist: 'Onlybino!',
-    year: 2021,
-    views: 178
-  },
-  {
-    title: 'Antes de que Acabe el Verano',
-    artist: 'Blackpanda',
-    year: 2020,
-    views: 12
-  },
-  {
-    title: 'Blow Up Freestyle',
-    artist: 'Highsnob',
-    year: 2021,
-    views: 173
-  },
-  {
-    title: 'Zendaya',
-    artist: 'Pharaoh Santana',
-    year: 2021,
-    views: 11
-  },
-  {
-    title: 'Slatt Boy Anthem 5 Live or Die 2🔫',
-    artist: 'SBE Labon',
-    year: 2020,
-    views: 13
-  },
-  {
-    title: 'Peaux rouges',
-    artist: 'Olas',
-    year: 2021,
-    views: 5
-  },
-  {
-    title: 'Aint Broke Nomore',
-    artist: 'ABG Neal',
-    year: 2021,
-    views: 65
-  },
-  {
-    title: 'False Prophets',
-    artist: 'Art Smoke',
-    year: 2021,
-    views: 701
-  },
-  {
-    title: 'Не по зубам',
-    artist: 'TakeshiAkabe',
-    year: 2021,
-    views: 5
-  },
-  {
-    title: 'Se O Coração Falasse',
-    artist: 'Templo Negro',
-    year: 2020,
-    views: 9
-  },
-  {
-    title: 'Allers Retours',
-    artist: 'Asinine',
-    year: 2022,
-    views: 22
-  },
-  {
-    title: 'Lekkoduch',
-    artist: 'Pi Dwa',
-    year: 2020,
-    views: 203
-  },
-  {
-    title: 'Życiowa ruletka',
-    artist: 'Lacocamadre',
-    year: 2021,
-    views: 82
-  },
-  {
-    title: 'GOMMO-DEADLİNE',
-    artist: 'Mehmet Can Aznark',
-    year: 2021,
-    views: 11
-  },
-  {
-    title: 'NMJDS',
-    artist: 'Crushie, Jan Z & Lil Anuar',
-    year: 2022,
-    views: 18
-  },
-  {
-    title: 'Bussdown',
-    artist: 'Headie One',
-    year: 2021,
-    views: 896
-  },
-  {
-    title: 'My Lane',
-    artist: 'Bay Boy',
-    year: 2020,
-    views: 14
-  },
-  {
-    title: 'Dank Thots',
-    artist: 'King Tweaky',
-    year: 2020,
-    views: 18
-  },
-  {
-    title: 'Wait',
-    artist: 'Yung Lapras',
-    year: 2020,
-    views: 58
-  },
-  {
-    title: 'Lunar Escape Interlude',
-    artist: 'Thomson Nasser',
-    year: 2021,
-    views: 14
-  },
-  {
-    title: '​​​​bite marks',
-    artist: 'year08',
-    year: 2022,
-    views: 3
-  },
-  {
-    title: 'Werewolf',
-    artist: 'Squito Babe',
-    year: 2021,
-    views: 31
-  },
-  {
-    title: '25h8dAv. 10 de Dezembro',
-    artist: 'K Dirrty 8:30',
-    year: 2020,
-    views: 17
-  },
-  {
-    title: 'OK',
-    artist: 'XX3NO',
-    year: 2021,
-    views: 22
-  },
-  {
-    title: 'Kv$h',
-    artist: 'Lean Ghoul',
-    year: 2020,
-    views: 2
-  },
-  {
-    title: 'Cleanem Good Bathtime Song',
-    artist: 'Uzi FastMag',
-    year: 2023,
-    views: 9
-  },
-  {
-    title: 'Hells where all the good boys go 2',
-    artist: 'Gummy3',
-    year: 2021,
-    views: 2
-  },
-  {
-    title: 'IM OKAY',
-    artist: 'MC HEAT',
-    year: 2021,
-    views: 3
-  },
-  {
-    title: 'Oti Bere',
-    artist: 'DARKOO',
-    year: 2021,
-    views: 392
-  },
-  {
-    title: 'Флэнг Flang',
-    artist: 'RYSO',
-    year: 2020,
-    views: 14
-  },
-  {
-    title: 'Procuro',
-    artist: '.pg (Card Principal)',
-    year: 2020,
-    views: 5
-  },
-  {
-    title: 'Bulletproof',
-    artist: 'Swift Guad',
-    year: 2021,
-    views: 200
+    title: 'Im Paris Hilton',
+    artist: 'Lil B',
+    year: 2010,
+    views: 20376,
+    language: ''
   }
 ]
 
 ==========================================================================================
 Query 6: find/q6.js
-Name: Find all rap songs in English with more than 1000 views that have a verse containing the word "devil" (case-insensitive).
+Name: Find all english rap songs from Lil Wayne with more than 100000 views that have a verse containing the word "swag" (case-insensitive).
 
 Query:
 db.songs.find(
   {
     language: "en",
     tag: "rap",
-    views: { $gt: 1000 },
+    artist: "Lil Wayne",
+    views: { $gt: 100000 },
     lyrics: {
       $elemMatch: {
         type: "Verse",
-        content: { $regex: /(\bdevil[\s\S]*?)/i }
+        content: { $regex: /(\bswag[\s\S]*?)/i }
       }
     }
   },
   {
     title: 1,
     artist: 1,
+    views: 1,
     language: 1,
     "lyrics.$": 1, 
     _id: 0
   }
-)
+).limit(10)
 
 Result:
 [
   {
-    title: 'WAIT FOR ME',
-    artist: 'MIKE',
+    title: 'Ice Cream',
+    artist: 'Lil Wayne',
+    views: 114735,
     lyrics: [
       {
-        section_id: 1,
+        section_id: 2,
         type: 'Verse',
-        line_count: 24,
+        line_count: 61,
         content: '[Verse]\n' +
-          'Ay, ay, been pushed to the side\n' +
-          'Want me to look in your eyes, nigga\n' +
-          "I can't even look in the mirror\n" +
-          'I been lost in my mind with the devil screaming\n' +
-          'Hoping that you hear it\n' +
-          'Wash my soul away in the ocean with the spirits\n' +
-          "I be focused 'cause I'm near it\n" +
-          "6'3 black boy, judge me off appearance\n" +
-          "But I'm way too grown to be running them errands\n" +
-          "I don't know what's colder\n" +
-          'My heart or my reflection in this puddle that I stare in\n' +
-          'Subtle when he air you\n' +
-          'I popped the bubble, now these niggas feeling scared\n' +
-          "A lot of trouble with this pigment that I'm wearing\n" +
-          "And not for nothing, niggas isn't what I'm hearing\n" +
-          "'Cause I know a lot of niggas didn't wanna see me here\n" +
-          "But I'm here so how I'm gonna play it when the game done?\n" +
-          "And where I'm gon' be sitting when the chair fall?\n" +
-          'I bet we sitting underneath the same sun\n' +
-          'We might not really be together right now\n' +
-          'But maybe I could reach you when the day done\n' +
-          'So if you wanna see me, you should say some\n' +
-          'So if you wanna see me, you should say some\n' +
-          'Please, if you wanna see me, you should say some'
+          'Young Money, syrup in the big shot\n' +
+          "Time to do the thing, that's word to your wristwatch\n" +
+          "Shoot the Glock 'til it burn, 'til my wrist lock\n" +
+          'Rims hella big, tires skinny like Chris Rock\n' +
+          'H—Hold the gun sideways like O-Dog\n' +
+          'Shoot a nigga in his face, knock his nose off\n' +
+          'Make the girls say my name like a roll call\n' +
+          "Painkillers got a nigga 'bout to doze off\n" +
+          'Big shit, nigga, talk big shit, nigga\n' +
+          'Big bread, bread like a picnic, nigga\n' +
+          'Shake the whole game like the Hit-Stick, nigga\n' +
+          'Money spread like germs, get sick, nigga\n' +
+          'Yeah, and fuck them other niggas\n' +
+          '1-900, who want it? I deliver\n' +
+          "Concrete shoes won't help in the river\n" +
+          "I don't care if you was Michael Phelps, my nigga\n" +
+          "I'm higher than the motherfucking Alps, my nigga\n" +
+          "I'm flyer than the motherfucking stealth, my nigga\n" +
+          'Y—Young Money shit, top shelf, my nigga\n' +
+          'We the motherfuckers, like MILF, my nigga\n' +
+          'Ahem, flow like syringes\n' +
+          "Yeah, I'm in my mode, got a code like Da Vinci's\n" +
+          "I was in the trenches, now I'm in the Trump\n" +
+          "And everybody watch your back when you're in the front\n" +
+          "You ain't never safe, stop playing with a gangsta\n" +
+          'Brang it to his face, and he ran like a flanker\n' +
+          'Bend the girl over, put her hands on her ankles\n' +
+          `I'm all over this "Ice Cream" beat like sprinkles\n` +
+          `"Why, thank you!"—if you's a hater\n` +
+          "I'm eating, you's a waiter\n" +
+          'Pistol on my hip, "Tomb Raider"\n' +
+          'Holler at your guala, zoom, later\n' +
+          'Young Tune, nigga; typhoon, nigga\n' +
+          "And if you think it's sweet, buy a room, nigga\n" +
+          "Damu, nigga, I'm on my gang shit\n" +
+          'She give me good brain like she studied at Cambridge\n' +
+          'Lighting up a motherfucking blunt\n' +
+          'Stupid-fruity swag like a motherfucking Runt\n' +
+          'And I be with my dog like a motherfucker hunt\n' +
+          'And every day of the week is the first of the month\n' +
+          'Audemars Piguet with the diamonds in the face\n' +
+          "Can't tell the time 'cause the diamonds in the face\n" +
+          'We can get it popping like a semi-automatic\n' +
+          'And if you got beef, I put the biscuit on the patty\n' +
+          'Rockstar tatted, big-money addict\n' +
+          "Running this shit, now I'm feeling ath-lat-ic\n" +
+          "I—I'm on a boat, bitch, getting seasick\n" +
+          "Stop playing, I'm fresher than a Degree stick\n" +
+          'Street shit—well, of course\n' +
+          "I smoke mad weed, I'm on my high horse\n" +
+          "Please, don't shoot me down, I land feet flat\n" +
+          'Then walk a million miles with New Orleans on my back\n' +
+          'Haha! I need a massage\n' +
+          'And when it come to hoes, man, I got a collage\n' +
+          "Finger on the button, nigga, just stuntin'\n" +
+          "If you ain't the bank teller, don't tell me nothing\n" +
+          'Kush so strong, you can smell me coming\n' +
+          'Bitch, I go hard like the boy from "300"\n' +
+          "You think y'all kick it, well, boy, we punting\n" +
+          'Young Money, baby, we the shit, weak stomachs\n' +
+          'No Ceilings, motherfucker'
+      }
+    ],
+    language: 'en'
+  },
+  {
+    title: 'Swag Surf',
+    artist: 'Lil Wayne',
+    views: 229306,
+    lyrics: [
+      {
+        section_id: 2,
+        type: 'Verse',
+        line_count: 63,
+        content: '[Verse]\n' +
+          "I got this chrome on this Bugatti, I'm strong in this Bugatti\n" +
+          "Two V8s, ain't no such thing as driving calm in this Bugatti\n" +
+          "Bitch, I’m bad, I'm worse, I'll pass the purp\n" +
+          "Don't fuck with me 'cause right now, I'm higher than Captain Kirk\n" +
+          'I swear, I be the sickest nigga, you can ask the nurse\n' +
+          "And if you throw it in a bag I bet I'll snatch her purse\n" +
+          "OK, I spaz, I curse; you last, I'm first\n" +
+          "I'm on your ass, like dirt; behind that cash, get murked\n" +
+          "I'm talking big shit, nigga, join my hit list, nigga\n" +
+          "What's the matter? Check your bladder, I'm the shit, piss, nigga\n" +
+          'Shoot the witness, nigga\n' +
+          'Hold court in the streets and convict this nigga\n' +
+          "Ol' dickless nigga\n" +
+          "Man, I'm running with the blocka, Young Money, motherfucker\n" +
+          "You think we gon' do our thing? Well, ain't it sunny in the summer?\n" +
+          'And we coming for the commas, and whoever among us\n' +
+          "And you know I'ma bust my ass until my crew very humongous\n" +
+          'I said, T.I., hold your head, and Mack, hold your head\n' +
+          "Wish I could but I can't say some other names 'cause of the Feds\n" +
+          'And to my Bloods, code red, man, you know how we play it\n' +
+          'And if it costs to be the boss, oh well, I guess I gotta pay\n' +
+          "I—I'm a New Orleans nigga, I don't take no shit\n" +
+          "Take the brain off the whip; now, it don't make no sense\n" +
+          "Stunt hard on these bitches, I ain't promised tomorrow\n" +
+          'Now, women kicking it with me like Nomar Garciaparra\n' +
+          "Fuq' roll them killer plants, the Little Shop of Horror\n" +
+          "And we roll them bitches thick, make 'em look like Toccara\n" +
+          "Man, I'm too much for these niggas and three much for these hoes\n" +
+          'The world is in my hands, and I keep my hands closed\n' +
+          'I love my baby mamas, they get my highest honor\n' +
+          'Gotta take care of them kids, man, I know you heard Obama\n' +
+          'And I live on an island, Atlantic in my backyard\n' +
+          'I just tell my pilot to land it in my backyard\n' +
+          'Quarterback, shotgun, you don’t get any sack yards\n' +
+          'Bitch, I ball hard, breaking all the backboards\n' +
+          'Pretty Boy Floyd, step up, I will crack yours\n' +
+          'And even at the White House, we pull up at the back doors\n' +
+          "Walk around like I'm 30 feet tall\n" +
+          'Tiger Woods, all these hoes tryna birdie these balls\n' +
+          'In the Porsche 911, like emergency calls\n' +
+          "Man, I just be chilling, I'm cool like Lou Rawls\n" +
+          "Young Money in the building, I'm putting up new walls\n" +
+          'Nigga take your Mrs. Officer and set some new laws\n' +
+          'My flow is like rubbing two logs\n' +
+          'Young Mula, we the new shit, new drawers, ugh\n' +
+          "Now, get off my dick, I ain't fucking with you\n" +
+          "Watch me shoot to the bank, I'm a money pistol\n" +
+          'Weezy beat the beat up like Sonny Liston\n' +
+          'Redbone do me good, then her friend assist her\n' +
+          'I mean, a bitch she never met, her best friend, or sister\n' +
+          'I leave the pussy micro-soft like Windows Vista\n' +
+          'Young Tunechi, pop that coochie for a goon, ho\n' +
+          "Bullet in you boys' memory, now you act like you don't know\n" +
+          'Eastside who I do it for, Eagle Street, right by the store\n' +
+          "Katrina wiped the city out but couldn't fuck with Hollygrove\n" +
+          'Lost some real niggas I knew from a long time ago\n' +
+          "But Heaven or Hell, I'm hoping that they be where I'ma go\n" +
+          'Take a nigga gal and make her come give me a private show\n' +
+          `Still "long hair, don't care" like a Navajo\n` +
+          "I'm the hardest shit, go in your ass and search\n" +
+          'I smash this verse, and I swag and surf\n' +
+          '[Outro]\n' +
+          'No Ceilings!\n' +
+          'Hahahaha!'
+      }
+    ],
+    language: 'en'
+  },
+  {
+    title: 'Wasted',
+    artist: 'Lil Wayne',
+    views: 178579,
+    lyrics: [
+      {
+        section_id: 2,
+        type: 'Verse',
+        line_count: 74,
+        content: '[Verse]\n' +
+          'Rockstar lifestyle, might not make it\n' +
+          "President, got 'em in the White House naked\n" +
+          'Looked at the clock and it say, "Right now"\n' +
+          'Get a pound, break it down, blow it like trial\n' +
+          'Panatela Dutchie, wine in my tall glass\n' +
+          'Young Money, baby, big shit, like a horse ass\n' +
+          'Stacks in my backpack, shades on, hat back\n' +
+          'Bugatti, matte black—"Where they do that at?"\n' +
+          "South Beach Miami, ho, I'm probably with Tammy To'\n" +
+          'My life is a video and the women want they cameo\n' +
+          'I just want them pantyhose, and I’m higher than Ger-an-imo\n' +
+          'And I got them tools, tell them boys it could get mechanical\n' +
+          'Now, pop that pussy like a four-four\n' +
+          "I turn you 'round and bend you over like a low blow\n" +
+          'It’s Young Money, baby, we the fucking greatest\n' +
+          'We done put them other niggas on a hiatus\n' +
+          'Beat your bitch with the pump if she deny data\n' +
+          "'Cause I’ll serve anyone like a blind waiter\n" +
+          'I make my girl cum first; then, I arrive later\n' +
+          "I shake you pussies up, I'm a vibrator, haha!\n" +
+          'G—Getting money like, "Hell yeah"\n' +
+          'This shit so good, it don’t even smell bad\n' +
+          'And you can tell Dad that I’m a motherfucker\n' +
+          "You niggas bet' not slip—Ice Road Truckers\n" +
+          'Light-pole barrel, chopper stupid-long\n' +
+          'New Orleans nigga, I get super-dome\n' +
+          'Loyal to the game, the game been good to me\n' +
+          'Still spitting fire, you niggas wood to me, ha!\n' +
+          'We on, nigga; let—let them hoes know\n' +
+          "Young Money lay 'em down like old folks\n" +
+          'You coming with it? We coming for it\n' +
+          'Plenty to go around—now, watch the money orbit\n' +
+          'Real shit, people; now, just absorb it\n' +
+          "I tried to pay attention, but y'all mad boring\n" +
+          'And I got so much swag, I need an ad for it\n' +
+          'And I don’t like to brag, so my bitches brag for me\n' +
+          'Oh, she a good girl? I got her transforming\n' +
+          'She give me hot head, I call it "global warming"\n' +
+          "If we gon' do it, dog, let's do it now\n" +
+          'I—I—I am more animal than the zoo allow\n' +
+          'Put me in the wild, I’ll be there for a while\n' +
+          "You niggas Little League, call 'em Curaçao\n" +
+          'Energizer money: it keep going\n' +
+          'I’m laid up, I’m free-throwing\n' +
+          'Who rebounding? Who gives a shit?\n' +
+          'Fuck that, I got 27 years of this\n' +
+          'Hit or miss, I hit your missus\n' +
+          'You are local news; I’m 60 Minutes\n' +
+          'I—I hit the target, I hit the witness\n' +
+          'I work out in my office—guess I’m fit for business\n' +
+          'Too many visions, completed missions\n' +
+          'Still icing out crosses—keep it Christian\n' +
+          'We consistent, the streets commend it\n' +
+          'Weezy F. Baby, the "F" is for "Forensics"\n' +
+          'From start to finish, Usain Wayne\n' +
+          'OK, you doing your thing? Well, things change\n' +
+          'You plain-Jane, I’m diverse\n' +
+          'I save the world second, and I get high first\n' +
+          'I’m a mind freak, check my time sheet\n' +
+          'Bitch, I bring the noise where the lions sleep\n' +
+          'Your flow never wet, like Grandma pussy\n' +
+          'I’m always good, like Grandma cookies\n' +
+          'Yeah, call me the spleen or the spine fixer\n' +
+          "It's going down like the Catalina Wine Mixer\n" +
+          'She going down like the hands on my time-ticker\n' +
+          'I’m always strapped—Vietnam, nigga\n' +
+          'We are fine, nigga, like Amber Rose\n' +
+          'We ball, nigga, like Jalen Rose\n' +
+          'Better tell them hoes, I got a million flows\n' +
+          'Label me the hardest nigga in civilian clothes\n' +
+          'Young Money, baby, and the building grows\n' +
+          'As we look up—where did the ceilings go?\n' +
+          '[Outro]\n' +
+          'Hahaha\n' +
+          'No Ceilings'
+      }
+    ],
+    language: 'en'
+  },
+  {
+    title: 'Oh Let’s Do It',
+    artist: 'Lil Wayne',
+    views: 108232,
+    lyrics: [
+      {
+        section_id: 2,
+        type: 'Verse',
+        line_count: 60,
+        content: '[Verse: Lil Wayne]\n' +
+          'I got Young Money up, and now, I got my feet up\n' +
+          'Tune in this bitch, tell my niggas throw them Bs up\n' +
+          'Doing what the fuck I want, hate me all the fuck you want\n' +
+          "Real niggas fuck with me, and I don't give a fuck who don't\n" +
+          "Lock the CEO up, and I'm the CEO, fuck\n" +
+          "Prison in February, and I ain't in no rush\n" +
+          "Drink 'til I throw up; nigga, roll more blunts\n" +
+          'Ball so hard, man, I gotta go pro once\n' +
+          `Hit 'em with the shotgun, call that shit "the stop button"\n` +
+          'Call me Dr. Carter, AKA "Young Wild Nigga"\n' +
+          'AKA "No trial, nigga," AK, click-clack, pow, nigga\n' +
+          "Fucking with the kid and you'll be missing like Bilal, nigga\n" +
+          'Yeah! Haha! Swagger stupid\n' +
+          'Pack a Uzi\n' +
+          "Hundred clips, nigga? That's a movie\n" +
+          'Aim at your toupée\n' +
+          'You sweet as Kool-Aid, cream brulée\n' +
+          "I'm sharp as Blu-Ray, I fuck her today\n" +
+          'Then she gotta skate—Young Lupe\n' +
+          'I hit the beat hard—Bobby Boucher\n' +
+          'I keep them tools on me, get the screwface\n' +
+          "Flowers for the dead, here's a bouquet\n" +
+          "L.V.'s, nigga, on every suitcase\n" +
+          "Y.M., nigga, it's a new day\n" +
+          'We the champions, nigga, hoo-ray\n' +
+          "Yeah! Hammer in the Louis duff'\n" +
+          'Take a nigga bitch, she gave me brains until I knew enough\n' +
+          'Bullet come too fast to adjust\n' +
+          "I don't give a fuck about my roof that much\n" +
+          'So I put it in the trunk, and then, the coupe sped up\n' +
+          'Take the chopper out the trunk and just shoot that up\n' +
+          `I'm Weezy F. and the "F" is for "Flame"\n` +
+          'Eat these rappers, chef of the game\n' +
+          'Shit on the track, shit on the train\n' +
+          'Murder the beat—the beat was slain\n' +
+          "Rest in peace, that's a shame, he kill anybody song\n" +
+          'Versatile as fuck, I switch it up like Dennis Rodman dome\n' +
+          'No homo, you rocking wrong; rest in peace, my styrofoam\n' +
+          'Now, they wanna know what I be on\n' +
+          'Get the fuck off my dick, my cock, my bone\n' +
+          'Bi—Big money, my pockets long, New Orleans, I got my home\n' +
+          'And they got my back—pause; no homo, no maricón\n' +
+          'Smoking on that private-grown, it put me where I belong\n' +
+          'All about my cheese: cheddar, mozzarella, provolone\n' +
+          'Fuck her for an hour-long, let her take a shower, gone\n' +
+          "Sorry baby, but I'm in my I-don't-wan'-be-bothered zone\n" +
+          "Yeah! Haha, you're a groupie\n" +
+          'Get on your duty\n' +
+          'Two women give me head, call that "Two-face"\n' +
+          "Bitch, I'm too great\n" +
+          'Take your food tray, I was born on doomsday\n' +
+          "Ugh! Ain—Ain't no nigga like me\n" +
+          `"What's up?" to my gang, big B's like a Breitling\n` +
+          'Take a nigga bitch, she ride my dick like she cycling\n' +
+          "Then, she can't walk, run, or jump, like white men\n" +
+          'Ugh! F—Fuck you niggas wanna do?\n' +
+          'No Ceilings, let the bullets rain on you\n' +
+          'Weezy F, the "F" is for "Fuck what you’re going through"\n' +
+          'Make your people mourn you\n' +
+          '[Outro: Lil Wayne]\n' +
+          "Haha! OK, let's do it"
       }
     ],
     language: 'en'
@@ -790,79 +677,244 @@ db.songs.aggregate([
 Result:
 [
   {
-    song_count: 2,
-    artist: '(Valentin Dyadka)',
-    avg_views: 936
-  },
-  {
     song_count: 3,
-    artist: 'Genius Romanizations',
-    avg_views: 244
+    artist: 'Lady Gaga',
+    avg_views: 1328369.67
   },
   {
     song_count: 2,
-    artist: 'Charles Dickens',
-    avg_views: 35.5
+    artist: 'Justin Bieber',
+    avg_views: 1142486
   },
   {
     song_count: 2,
-    artist: 'Anton Chekhov',
-    avg_views: 28.5
+    artist: 'Mobb Deep',
+    avg_views: 1061264.5
   },
   {
     song_count: 2,
-    artist: 'Giovanni Boccaccio',
-    avg_views: 11.5
+    artist: 'Led Zeppelin',
+    avg_views: 950428
+  },
+  {
+    song_count: 43,
+    artist: 'Kanye West',
+    avg_views: 886827.23
+  },
+  {
+    song_count: 5,
+    artist: 'N.W.A',
+    avg_views: 885114.8
+  },
+  {
+    song_count: 2,
+    artist: 'Lil Jon & The East Side Boyz',
+    avg_views: 718606
+  },
+  {
+    song_count: 94,
+    artist: 'Eminem',
+    avg_views: 701050
+  },
+  {
+    song_count: 30,
+    artist: 'The Notorious B.I.G.',
+    avg_views: 677394.73
+  },
+  {
+    song_count: 8,
+    artist: 'Wu-Tang Clan',
+    avg_views: 635048.25
   }
 ]
 
 ==========================================================================================
 Query 8: aggregate/q2.js
-Name: Number of songs per genre tag.
+Name: Upgraded query to find all posse cuts, now including verse counts
 
 Query:
 db.songs.aggregate([
   {
-    $group: {
-      _id: "$tag",
-      total_songs: { $sum: 1 }
+    $match: {
+      "tag": "rap",
+      "features.3": { $exists: true } 
+    }
+  },
+  {
+    $addFields: {
+      verse_count: {
+        $size: {
+          $filter: {
+            input: "$lyrics",
+            as: "lyric",
+            cond: { 
+              $regexMatch: { 
+                input: "$$lyric.type", 
+                regex: /verse/i  // 'i' flag makes it case-insensitive
+              }
+             }
+          }
+        }
+      }
+    }
+  },
+  {
+    $match: {
+      verse_count: { $gte: 4 }
     }
   },
   {
     $project: {
-      _id: 0,
-      tag: "$_id",
-      total_songs: 1
+      title: 1,
+      artist: 1,
+      features: 1,
+      verse_count: 1
     }
-  },
-  { $sort: { total_songs: -1 } }
+  }
 ])
 
 Result:
 [
   {
-    total_songs: 191,
-    tag: 'rap'
+    _id: '85',
+    title: 'Make It Rain Remix',
+    artist: 'Fat Joe',
+    features: [
+      'Lil Wayne',
+      'Rick Ross',
+      'DJ Khaled',
+      'R. Kelly',
+      'Ace Mac'
+    ],
+    verse_count: 4
   },
   {
-    total_songs: 152,
-    tag: 'pop'
+    _id: '394',
+    title: 'Welcome 2 Houston',
+    artist: 'Slim Thug',
+    features: [
+      'Mike Jones',
+      'Paul Wall',
+      'Trae tha Truth',
+      'Lil Keke',
+      'Big Pokey',
+      "Lil' O",
+      'Mike-D (S.U.C.)',
+      'Yung Redd',
+      'Rob G'
+    ],
+    verse_count: 11
   },
   {
-    total_songs: 78,
-    tag: 'rock'
+    _id: '706',
+    title: 'Its Okay One Blood Remix',
+    artist: 'The Game',
+    features: [
+      'Lil Wayne',
+      'Snoop Dogg',
+      'Styles P',
+      'Juelz Santana',
+      'Jim Jones',
+      'Fat Joe',
+      'Rick Ross',
+      'Ja Rule',
+      'Slim Thug',
+      'Bun B',
+      'Young Dro',
+      'Tha Dogg Pound',
+      'Junior Reid'
+    ],
+    verse_count: 20
   },
   {
-    total_songs: 52,
-    tag: 'misc'
+    _id: '1082',
+    title: 'All I Do Is Win Remix',
+    artist: 'DJ Khaled',
+    features: [
+      'Fat Joe',
+      'Rick Ross',
+      'Nicki Minaj',
+      'Swizz Beatz',
+      'Busta Rhymes'
+    ],
+    verse_count: 6
   },
   {
-    total_songs: 17,
-    tag: 'rb'
+    _id: '756',
+    title: 'Da Graveyard',
+    artist: 'Big L',
+    features: [
+      'Lord Finesse',
+      'Party Arty',
+      'Grand Daddy I.U.',
+      'Microphone Nut'
+    ],
+    verse_count: 4
   },
   {
-    total_songs: 10,
-    tag: 'country'
+    _id: '948',
+    title: 'Im So Hood Remix',
+    artist: 'DJ Khaled',
+    features: [
+      'Lil Wayne',
+      'Fat Joe',
+      'Rick Ross',
+      'Big Boi',
+      'Busta Rhymes'
+    ],
+    verse_count: 6
+  },
+  {
+    _id: '993',
+    title: 'I Got 5 On It Remix',
+    artist: 'Luniz',
+    features: [
+      'Dru Down',
+      'Shock G',
+      'Richie Rich',
+      'Spice 1',
+      'Michael Marshall'
+    ],
+    verse_count: 5
+  },
+  {
+    _id: '1119',
+    title: '8 Iz Enuff',
+    artist: 'Big L',
+    features: [
+      "Cam'ron",
+      'Buddah Bless',
+      'Big Twan',
+      'Trooper J',
+      'Mike Boogie'
+    ],
+    verse_count: 5
+  },
+  {
+    _id: '1410',
+    title: 'Christian Dior Denim Flow',
+    artist: 'Kanye West',
+    features: [
+      'Kid Cudi',
+      'Lloyd Banks',
+      'John Legend',
+      'Pusha T',
+      'Ryan Leslie'
+    ],
+    verse_count: 4
+  },
+  {
+    _id: '1431',
+    title: 'YM Salute',
+    artist: 'Lil Wayne',
+    features: [
+      'Nicki Minaj',
+      'Jae Millz',
+      'Gudda Gudda',
+      'Lil Twist',
+      'Lil Chuckee'
+    ],
+    verse_count: 5
   }
 ]
 
@@ -893,64 +945,64 @@ db.songs.aggregate([
 Result:
 [
   {
-    appearances: 3,
-    featured_artist: 'Constance Garnett'
+    appearances: 41,
+    featured_artist: "Cam'ron"
   },
   {
-    appearances: 2,
-    featured_artist: 'Валентин Дядька (Valentin Dyadka)'
+    appearances: 39,
+    featured_artist: 'Lil Wayne'
   },
   {
-    appearances: 2,
-    featured_artist: 'Bow Wow'
+    appearances: 23,
+    featured_artist: 'Kanye West'
   },
   {
-    appearances: 1,
-    featured_artist: '​ambeats'
+    appearances: 18,
+    featured_artist: 'Snoop Dogg'
   },
   {
-    appearances: 1,
-    featured_artist: 'N. Bajozero'
+    appearances: 16,
+    featured_artist: 'Juelz Santana'
   },
   {
-    appearances: 1,
-    featured_artist: 'Delhia de France'
+    appearances: 15,
+    featured_artist: 'Rick Ross'
   },
   {
-    appearances: 1,
-    featured_artist: "Lil' Zane"
+    appearances: 15,
+    featured_artist: 'Pharrell Williams'
   },
   {
-    appearances: 1,
-    featured_artist: 'Белькин (Belkin)'
+    appearances: 14,
+    featured_artist: 'JAY-Z'
   },
   {
-    appearances: 1,
-    featured_artist: 'Shakka'
+    appearances: 14,
+    featured_artist: 'Nicki Minaj'
   },
   {
-    appearances: 1,
-    featured_artist: 'Mehmet Can Azınarık'
+    appearances: 12,
+    featured_artist: 'Nate Dogg'
   },
   {
-    appearances: 1,
-    featured_artist: 'Gus G.'
+    appearances: 9,
+    featured_artist: 'Swizz Beatz'
   },
   {
-    appearances: 1,
-    featured_artist: 'Штар (Shtar Group)'
+    appearances: 9,
+    featured_artist: 'Eminem'
   },
   {
-    appearances: 1,
-    featured_artist: 'Mýa'
+    appearances: 9,
+    featured_artist: 'Styles P'
   },
   {
-    appearances: 1,
-    featured_artist: 'Jorge González'
+    appearances: 8,
+    featured_artist: 'Drake'
   },
   {
-    appearances: 1,
-    featured_artist: '​birthday'
+    appearances: 8,
+    featured_artist: 'Yasiin Bey'
   }
 ]
 
@@ -985,268 +1037,281 @@ db.songs.aggregate([
       avg_views: { $round: ["$avg_views", 2] }
     }
   },
-  { $sort: { decade: 1 } }
+  {
+    $sort: {
+      "avg_views": -1
+    }
+  },
 ])
 
 Result:
 [
   {
-    total_songs: 1,
-    decade: '0s',
-    avg_views: 15059
+    total_songs: 12,
+    decade: '1970s',
+    avg_views: 1439927.92
   },
   {
-    total_songs: 1,
-    decade: '1350s',
-    avg_views: 6
+    total_songs: 31,
+    decade: '1980s',
+    avg_views: 394189.16
   },
   {
-    total_songs: 1,
-    decade: '1610s',
-    avg_views: 22
+    total_songs: 6,
+    decade: '1960s',
+    avg_views: 384844
   },
   {
-    total_songs: 1,
-    decade: '1820s',
-    avg_views: 66
+    total_songs: 371,
+    decade: '1990s',
+    avg_views: 298232.97
   },
   {
-    total_songs: 2,
-    decade: '1830s',
-    avg_views: 35.5
+    total_songs: 259,
+    decade: '2010s',
+    avg_views: 212923.53
   },
   {
-    total_songs: 2,
-    decade: '1840s',
-    avg_views: 1353.5
-  },
-  {
-    total_songs: 1,
-    decade: '1860s',
-    avg_views: 13
-  },
-  {
-    total_songs: 3,
-    decade: '1870s',
-    avg_views: 72.33
-  },
-  {
-    total_songs: 3,
-    decade: '1880s',
-    avg_views: 18.33
-  },
-  {
-    total_songs: 1,
-    decade: '1890s',
-    avg_views: 9
-  },
-  {
-    total_songs: 1,
-    decade: '1900s',
-    avg_views: 10956
-  },
-  {
-    total_songs: 1,
-    decade: '1910s',
-    avg_views: 62
-  },
-  {
-    total_songs: 1,
-    decade: '1920s',
-    avg_views: 31
-  },
-  {
-    total_songs: 1,
-    decade: '1930s',
-    avg_views: 13
+    total_songs: 817,
+    decade: '2000s',
+    avg_views: 210419.79
   },
   {
     total_songs: 1,
     decade: '1950s',
-    avg_views: 87
+    avg_views: 190091
   },
   {
-    total_songs: 5,
-    decade: '1960s',
-    avg_views: 48.6
+    total_songs: 1,
+    decade: '1920s',
+    avg_views: 103203
   },
   {
-    total_songs: 3,
-    decade: '1970s',
-    avg_views: 4053
+    total_songs: 1,
+    decade: '1890s',
+    avg_views: 37027
   },
   {
-    total_songs: 12,
-    decade: '1980s',
-    avg_views: 1566.08
-  },
-  {
-    total_songs: 18,
-    decade: '1990s',
-    avg_views: 257.22
-  },
-  {
-    total_songs: 48,
-    decade: '2000s',
-    avg_views: 2111.92
-  },
-  {
-    total_songs: 271,
-    decade: '2010s',
-    avg_views: 8657.24
-  },
-  {
-    total_songs: 122,
-    decade: '2020s',
-    avg_views: 698.03
+    total_songs: 1,
+    decade: '1870s',
+    avg_views: 23448
   }
 ]
 
 ==========================================================================================
 Query 11: aggregate/q5.js
-Name: Songs with the highest total lyric line count.
+Name: Top 5 longest rap verses
 
 Query:
 db.songs.aggregate([
+  {
+    $match: {
+      "tag": "rap"
+    }
+  },
+  {
+    $unwind: "$lyrics"
+  },
+  {
+    $match: {
+      "lyrics.type": { $regex: /verse/i }
+    }
+  },
+  {
+    $sort: { "lyrics.line_count": -1 }
+  },
+  {
+    $limit: 5
+  },
   {
     $project: {
       _id: 0,
       title: 1,
       artist: 1,
-      year: 1,
-      total_lines: {
-        $sum: "$lyrics.line_count"
-      }
+      line_count: "$lyrics.line_count",
+      section_type: "$lyrics.type"
     }
-  },
-  { $sort: { total_lines: -1 } },
-  { $limit: 10 }
+  }
 ])
 
 Result:
 [
   {
-    title: 'The Canterbury Tales: The Millers Tale in Middle English',
-    artist: 'Geoffrey Chaucer',
-    year: 2014,
-    total_lines: 670
+    title: 'Adventures of Super Rhyme Rap',
+    artist: 'Jimmy Spicer',
+    line_count: 295,
+    section_type: 'Verse'
   },
   {
-    title: 'Scenes From The Faust Of Goethe Scene 2',
-    artist: 'Percy Bysshe Shelley',
-    year: 2013,
-    total_lines: 518
+    title: 'Poet Laureate II',
+    artist: 'Canibus',
+    line_count: 165,
+    section_type: 'Verse'
   },
   {
-    title: '19/05/16: VS94SKI vs. Белькин',
-    artist: '#SLOVOSPB',
-    year: 2016,
-    total_lines: 345
+    title: 'Dumb Out',
+    artist: 'Joe Budden',
+    line_count: 152,
+    section_type: 'Verse 1'
   },
   {
-    title: 'The Alchemist Act 5 Scene 2',
-    artist: 'Ben Jonson',
-    year: 1610,
-    total_lines: 325
+    title: '6 Minutes of Death',
+    artist: 'Joe Budden',
+    line_count: 144,
+    section_type: 'Verse 1'
   },
   {
-    title: 'Charlotte Perkins Gilman’s “The Yellow Wallpaper” 3',
-    artist: 'Ccasson',
-    year: 2015,
-    total_lines: 278
-  },
-  {
-    title: 'Chapter 13: The Socialist Challenge',
-    artist: 'Howard Zinn',
-    year: 1980,
-    total_lines: 278
-  },
-  {
-    title: 'So Can I',
-    artist: 'Jessica Mechell',
-    year: 2018,
-    total_lines: 159
-  },
-  {
-    title: 'Draped Up',
-    artist: 'The Jibster',
-    year: 2017,
-    total_lines: 140
-  },
-  {
-    title: 'Women in Love Chap. 3',
-    artist: 'D. H. Lawrence',
-    year: 1920,
-    total_lines: 138
-  },
-  {
-    title: 'My Lane',
-    artist: 'Bay Boy',
-    year: 2020,
-    total_lines: 131
+    title: 'Man of the Hour',
+    artist: 'Virtuoso',
+    line_count: 130,
+    section_type: 'Verse 1'
   }
 ]
 
 ==========================================================================================
 Query 12: aggregate/q6.js
-Name: Average chorus line count by genre tag.
+Name: Find the most popular guest artists (features) across all songs, based on average views. Only include features that appear in at least 3 songs, and provide a sample of notable tracks for each feature.
 
 Query:
 db.songs.aggregate([
-  { $unwind: "$lyrics" },
   {
     $match: {
-      "lyrics.type": "Chorus"
+      features: { $exists: true, $ne: [] }
     }
   },
   {
+    $unwind: "$features"
+  },
+  {
     $group: {
-      _id: "$tag",
-      avg_chorus_lines: { $avg: "$lyrics.line_count" },
-      chorus_sections: { $sum: 1 }
+      _id: "$features",
+      average_views: { $avg: "$views" },
+      total_appearances: { $sum: 1 },
+      notable_tracks: { $push: "$title" }
     }
+  },
+  {
+    $match: {
+      total_appearances: { $gte: 3 }
+    }
+  },
+  {
+    $sort: { average_views: -1 }
   },
   {
     $project: {
       _id: 0,
-      tag: "$_id",
-      chorus_sections: 1,
-      avg_chorus_lines: { $round: ["$avg_chorus_lines", 2] }
+      guest_artist: "$_id",
+      average_views: { $round: ["$average_views", 0] },
+      total_appearances: 1,
+      sample_tracks: { $slice: ["$notable_tracks", 3] }
     }
   },
-  { $sort: { avg_chorus_lines: -1 } }
+  {
+    $limit: 10
+  }
 ])
 
 Result:
 [
   {
-    chorus_sections: 2,
-    tag: 'misc',
-    avg_chorus_lines: 25
+    total_appearances: 5,
+    guest_artist: 'Pusha T',
+    average_views: 941253,
+    sample_tracks: [
+      'G.O.O.D. Friday',
+      'Runaway',
+      'So Appalled'
+    ]
   },
   {
-    chorus_sections: 52,
-    tag: 'rap',
-    avg_chorus_lines: 9.04
+    total_appearances: 5,
+    guest_artist: 'Outlawz',
+    average_views: 884009,
+    sample_tracks: [
+      'Bomb First My Second Reply',
+      'Hit Em Up',
+      'Thug Passion'
+    ]
   },
   {
-    chorus_sections: 11,
-    tag: 'rb',
-    avg_chorus_lines: 8.09
+    total_appearances: 4,
+    guest_artist: 'Alicia Keys',
+    average_views: 745585,
+    sample_tracks: [
+      'Empire State of Mind',
+      'Fireworks',
+      'No One Remix'
+    ]
   },
   {
-    chorus_sections: 38,
-    tag: 'rock',
-    avg_chorus_lines: 7.39
+    total_appearances: 9,
+    guest_artist: 'Eminem',
+    average_views: 684955,
+    sample_tracks: [
+      'Renegade',
+      'Dead Wrong',
+      'Whats the Difference'
+    ]
   },
   {
-    chorus_sections: 65,
-    tag: 'pop',
-    avg_chorus_lines: 7.18
+    total_appearances: 15,
+    guest_artist: 'Rick Ross',
+    average_views: 561139,
+    sample_tracks: [
+      'Make It Rain Remix',
+      'We Takin Over',
+      'Its Okay One Blood Remix'
+    ]
   },
   {
-    chorus_sections: 7,
-    tag: 'country',
-    avg_chorus_lines: 6.86
+    total_appearances: 12,
+    guest_artist: 'Nate Dogg',
+    average_views: 536471,
+    sample_tracks: [
+      '21 Questions',
+      'Regulate',
+      'Aint No Fun If the Homies Cant Have None'
+    ]
+  },
+  {
+    total_appearances: 14,
+    guest_artist: 'Nicki Minaj',
+    average_views: 490829,
+    sample_tracks: [
+      '5 Star Remix',
+      'My Chick Bad',
+      'Roger That'
+    ]
+  },
+  {
+    total_appearances: 18,
+    guest_artist: 'Snoop Dogg',
+    average_views: 404638,
+    sample_tracks: [
+      'Bitches Aint Shit',
+      'Let Me Ride',
+      'Still D.R.E.'
+    ]
+  },
+  {
+    total_appearances: 4,
+    guest_artist: 'The Notorious B.I.G.',
+    average_views: 387322,
+    sample_tracks: [
+      'Brooklyns Finest',
+      'Its All About the Benjamins Remix',
+      'Runnin Dying to Live'
+    ]
+  },
+  {
+    total_appearances: 7,
+    guest_artist: 'Dr. Dre',
+    average_views: 384648,
+    sample_tracks: [
+      'Encore / Curtains Down',
+      'The Watcher 2',
+      'California Love'
+    ]
   }
 ]

@@ -6,4 +6,4 @@ db.songs.find(
     tag: "pop",
   },
   { title: 1, artist: 1, tag: 1, year: 1, views: 1, _id: 0 }
-)
+).limit(10)
