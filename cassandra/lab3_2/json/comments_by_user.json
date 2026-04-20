@@ -1,0 +1,86 @@
+[
+  {
+    "author_username": "hannah",
+    "comment_id": "185916d0-3ccd-11f1-9ff2-d1be25bf1197",
+    "content": "Amazing content!",
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe97"
+  },
+  {
+    "author_username": "bob",
+    "comment_id": "185630a0-3ccd-11f1-9ff2-d1be25bf1197",
+    "content": "Great introduction! Really helpful.",
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe95"
+  },
+  {
+    "author_username": "julia",
+    "comment_id": "1859da20-3ccd-11f1-9ff2-d1be25bf1197",
+    "content": "Looking forward to more videos like this.",
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe98"
+  },
+  {
+    "author_username": "kevin",
+    "comment_id": "185a2840-3ccd-11f1-9ff2-d1be25bf1197",
+    "content": "Very informative!",
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe98"
+  },
+  {
+    "author_username": "evan",
+    "comment_id": "1857b740-3ccd-11f1-9ff2-d1be25bf1197",
+    "content": "This is exactly what I needed.",
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe96"
+  },
+  {
+    "author_username": "george",
+    "comment_id": "1858a1a0-3ccd-11f1-9ff2-d1be25bf1197",
+    "content": "This helped me understand better.",
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe96"
+  },
+  {
+    "author_username": "mike",
+    "comment_id": "185ac480-3ccd-11f1-9ff2-d1be25bf1197",
+    "content": "Well explained with good examples.",
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe99"
+  },
+  {
+    "author_username": "nancy",
+    "comment_id": "185b12a0-3ccd-11f1-9ff2-d1be25bf1197",
+    "content": "This was exactly what I was looking for.",
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe99"
+  },
+  {
+    "author_username": "oscar",
+    "comment_id": "185b60c0-3ccd-11f1-9ff2-d1be25bf1197",
+    "content": "Top quality content.",
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe95"
+  },
+  {
+    "author_username": "isaac",
+    "comment_id": "18598c00-3ccd-11f1-9ff2-d1be25bf1197",
+    "content": "Very clear explanation.",
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe97"
+  },
+  {
+    "author_username": "diana",
+    "comment_id": "18574210-3ccd-11f1-9ff2-d1be25bf1197",
+    "content": "Excellent work, thanks for sharing!",
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe95"
+  },
+  {
+    "author_username": "charlie",
+    "comment_id": "1856cce0-3ccd-11f1-9ff2-d1be25bf1197",
+    "content": "Could you provide more examples?",
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe95"
+  },
+  {
+    "author_username": "fiona",
+    "comment_id": "18582c70-3ccd-11f1-9ff2-d1be25bf1197",
+    "content": "Can you do a follow-up video?",
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe96"
+  },
+  {
+    "author_username": "lucy",
+    "comment_id": "185a7660-3ccd-11f1-9ff2-d1be25bf1197",
+    "content": "Thanks for the tutorial.",
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe98"
+  }
+]

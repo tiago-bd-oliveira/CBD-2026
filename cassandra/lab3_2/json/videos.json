@@ -1,0 +1,154 @@
+[
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fea5",
+    "author_username": "fiona",
+    "description": "Building dynamic UIs with React",
+    "tags": "SortedSet(['frontend', 'javascript', 'react'])",
+    "title": "React Frontend Development",
+    "upload_timestamp": "2026-04-20T15:24:59.753000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fea2",
+    "author_username": "diana",
+    "description": "Practical computer vision applications",
+    "tags": "SortedSet(['cv', 'ml', 'projects'])",
+    "title": "Computer Vision Projects",
+    "upload_timestamp": "2026-04-20T15:24:59.737000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fea1",
+    "author_username": "diana",
+    "description": "Deep dive into neural network architectures",
+    "tags": "SortedSet(['ai', 'deep-learning', 'ml'])",
+    "title": "Neural Networks Explained",
+    "upload_timestamp": "2026-04-20T15:24:59.733000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe9e",
+    "author_username": "bob",
+    "description": "Unit testing and integration testing in Python",
+    "tags": "SortedSet(['programming', 'python', 'testing'])",
+    "title": "Testing in Python",
+    "upload_timestamp": "2026-04-20T15:24:59.704000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe9b",
+    "author_username": "alice",
+    "description": "Best practices for designing Cassandra schemas",
+    "tags": "SortedSet(['cassandra', 'database', 'design'])",
+    "title": "Data Modeling Best Practices",
+    "upload_timestamp": "2026-04-20T15:24:59.684000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe9f",
+    "author_username": "charlie",
+    "description": "Deploy applications on Kubernetes clusters",
+    "tags": "SortedSet(['devops', 'kubernetes', 'orchestration'])",
+    "title": "Kubernetes Deployment",
+    "upload_timestamp": "2026-04-20T15:24:59.716000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe9c",
+    "author_username": "bob",
+    "description": "Build web applications using Flask framework",
+    "tags": "SortedSet(['flask', 'python', 'web'])",
+    "title": "Web Development with Flask",
+    "upload_timestamp": "2026-04-20T15:24:59.693000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe9d",
+    "author_username": "bob",
+    "description": "Understanding RESTful API design",
+    "tags": "SortedSet(['api', 'rest', 'web'])",
+    "title": "APIs and REST Services",
+    "upload_timestamp": "2026-04-20T15:24:59.698000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fea0",
+    "author_username": "charlie",
+    "description": "Building automated deployment pipelines",
+    "tags": "SortedSet(['automation', 'cicd', 'devops'])",
+    "title": "CI/CD Pipelines",
+    "upload_timestamp": "2026-04-20T15:24:59.723000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe9a",
+    "author_username": "alice",
+    "description": "Learn advanced patterns for Cassandra queries",
+    "tags": "SortedSet(['advanced', 'cassandra', 'database'])",
+    "title": "Advanced Query Patterns",
+    "upload_timestamp": "2026-04-20T15:24:59.680000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe98",
+    "author_username": "diana",
+    "description": "Introduction to machine learning concepts",
+    "tags": "SortedSet(['ai', 'ml', 'tutorial'])",
+    "title": "Machine Learning Basics",
+    "upload_timestamp": "2026-04-20T15:24:59.728000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fea3",
+    "author_username": "diana",
+    "description": "Natural language processing basics",
+    "tags": "SortedSet(['ai', 'ml', 'nlp'])",
+    "title": "NLP Fundamentals",
+    "upload_timestamp": "2026-04-20T15:24:59.740000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe95",
+    "author_username": "alice",
+    "description": "A comprehensive introduction to distributed databases",
+    "tags": "SortedSet(['cassandra', 'database', 'tutorial'])",
+    "title": "Intro to Cassandra",
+    "upload_timestamp": "2026-04-20T15:24:59.675000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fea6",
+    "author_username": "fiona",
+    "description": "Master modern CSS for responsive design",
+    "tags": "SortedSet(['css', 'design', 'frontend'])",
+    "title": "Advanced CSS Techniques",
+    "upload_timestamp": "2026-04-20T15:24:59.758000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fea7",
+    "author_username": "fiona",
+    "description": "Understanding promises, async/await",
+    "tags": "SortedSet(['async', 'frontend', 'javascript'])",
+    "title": "JavaScript Async Programming",
+    "upload_timestamp": "2026-04-20T15:24:59.762000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fea4",
+    "author_username": "evan",
+    "description": "Rapid application development with Spring Boot",
+    "tags": "SortedSet(['java', 'spring', 'web'])",
+    "title": "Spring Boot Framework",
+    "upload_timestamp": "2026-04-20T15:24:59.749000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe99",
+    "author_username": "evan",
+    "description": "Building enterprise applications with Java",
+    "tags": "SortedSet(['backend', 'enterprise', 'java'])",
+    "title": "Java Enterprise Development",
+    "upload_timestamp": "2026-04-20T15:24:59.745000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe96",
+    "author_username": "bob",
+    "description": "Getting started with Python programming",
+    "tags": "SortedSet(['programming', 'python', 'tutorial'])",
+    "title": "Python for Beginners",
+    "upload_timestamp": "2026-04-20T15:24:59.689000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe97",
+    "author_username": "charlie",
+    "description": "Getting started with containerization",
+    "tags": "SortedSet(['containers', 'devops', 'docker'])",
+    "title": "Docker Essentials",
+    "upload_timestamp": "2026-04-20T15:24:59.710000"
+  }
+]

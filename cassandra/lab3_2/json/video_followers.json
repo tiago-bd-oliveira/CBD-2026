@@ -1,0 +1,102 @@
+[
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe98",
+    "follower_username": "hannah",
+    "followed_at": "2026-04-20T15:24:59.800000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe98",
+    "follower_username": "isaac",
+    "followed_at": "2026-04-20T15:24:59.803000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe98",
+    "follower_username": "julia",
+    "followed_at": "2026-04-20T15:24:59.805000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe95",
+    "follower_username": "bob",
+    "followed_at": "2026-04-20T15:24:59.766000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe95",
+    "follower_username": "charlie",
+    "followed_at": "2026-04-20T15:24:59.769000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe95",
+    "follower_username": "diana",
+    "followed_at": "2026-04-20T15:24:59.772000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe95",
+    "follower_username": "evan",
+    "followed_at": "2026-04-20T15:24:59.774000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe95",
+    "follower_username": "fiona",
+    "followed_at": "2026-04-20T15:24:59.777000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe99",
+    "follower_username": "kevin",
+    "followed_at": "2026-04-20T15:24:59.808000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe99",
+    "follower_username": "lucy",
+    "followed_at": "2026-04-20T15:24:59.811000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe99",
+    "follower_username": "mike",
+    "followed_at": "2026-04-20T15:24:59.814000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe99",
+    "follower_username": "nancy",
+    "followed_at": "2026-04-20T15:24:59.816000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe96",
+    "follower_username": "alice",
+    "followed_at": "2026-04-20T15:24:59.780000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe96",
+    "follower_username": "charlie",
+    "followed_at": "2026-04-20T15:24:59.782000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe96",
+    "follower_username": "diana",
+    "followed_at": "2026-04-20T15:24:59.785000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe97",
+    "follower_username": "alice",
+    "followed_at": "2026-04-20T15:24:59.788000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe97",
+    "follower_username": "bob",
+    "followed_at": "2026-04-20T15:24:59.790000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe97",
+    "follower_username": "evan",
+    "followed_at": "2026-04-20T15:24:59.793000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe97",
+    "follower_username": "fiona",
+    "followed_at": "2026-04-20T15:24:59.795000"
+  },
+  {
+    "video_id": "6c0436f0-5b4f-11eb-b24e-52540054fe97",
+    "follower_username": "george",
+    "followed_at": "2026-04-20T15:24:59.798000"
+  }
+]

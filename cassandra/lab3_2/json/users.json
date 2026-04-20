@@ -1,0 +1,92 @@
+[
+  {
+    "username": "hannah",
+    "created_at": "2026-04-20T15:24:59.465000",
+    "email": "hannah@example.com",
+    "name": "Hannah Lee"
+  },
+  {
+    "username": "bob",
+    "created_at": "2026-04-20T15:24:59.421000",
+    "email": "bob@example.com",
+    "name": "Bob Smith"
+  },
+  {
+    "username": "julia",
+    "created_at": "2026-04-20T15:24:59.480000",
+    "email": "julia@example.com",
+    "name": "Julia Taylor"
+  },
+  {
+    "username": "kevin",
+    "created_at": "2026-04-20T15:24:59.487000",
+    "email": "kevin@example.com",
+    "name": "Kevin Anderson"
+  },
+  {
+    "username": "evan",
+    "created_at": "2026-04-20T15:24:59.442000",
+    "email": "evan@example.com",
+    "name": "Evan Davis"
+  },
+  {
+    "username": "george",
+    "created_at": "2026-04-20T15:24:59.457000",
+    "email": "george@example.com",
+    "name": "George Wilson"
+  },
+  {
+    "username": "mike",
+    "created_at": "2026-04-20T15:24:59.498000",
+    "email": "mike@example.com",
+    "name": "Mike Johnson"
+  },
+  {
+    "username": "nancy",
+    "created_at": "2026-04-20T15:24:59.504000",
+    "email": "nancy@example.com",
+    "name": "Nancy Brown"
+  },
+  {
+    "username": "oscar",
+    "created_at": "2026-04-20T15:24:59.509000",
+    "email": "oscar@example.com",
+    "name": "Oscar Garcia"
+  },
+  {
+    "username": "isaac",
+    "created_at": "2026-04-20T15:24:59.472000",
+    "email": "isaac@example.com",
+    "name": "Isaac Martinez"
+  },
+  {
+    "username": "diana",
+    "created_at": "2026-04-20T15:24:59.435000",
+    "email": "diana@example.com",
+    "name": "Diana Prince"
+  },
+  {
+    "username": "charlie",
+    "created_at": "2026-04-20T15:24:59.429000",
+    "email": "charlie@example.com",
+    "name": "Charlie Brown"
+  },
+  {
+    "username": "alice",
+    "created_at": "2026-04-20T15:24:59.402000",
+    "email": "alice@example.com",
+    "name": "Alice Johnson"
+  },
+  {
+    "username": "fiona",
+    "created_at": "2026-04-20T15:24:59.449000",
+    "email": "fiona@example.com",
+    "name": "Fiona Green"
+  },
+  {
+    "username": "lucy",
+    "created_at": "2026-04-20T15:24:59.493000",
+    "email": "lucy@example.com",
+    "name": "Lucy White"
+  }
+]
