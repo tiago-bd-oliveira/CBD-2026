@@ -80,5 +80,7 @@ Run the Python exporter (one file per table: `<table_name>.json`):
 ```bash
 uv run --with cassandra-driver --python 3.11 python lab3_2/export_tables_json.py cbd --host localhost --port 9042 --output-dir lab3_2/json
 ```
+### UDF
 
+UDFs are not allowed by default in cassandra. This makes sense, since they involve running embedded java code. It makes sense that these types of operations are not optimal in a system that prioritizes fast reading and routing, and is not optimized for complex operations with data. In a full stack application, these calculations should be handled by the business layer.
 

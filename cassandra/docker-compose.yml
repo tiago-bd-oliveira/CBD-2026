@@ -1,13 +1,13 @@
 services:
   cassandra:
-    image: cassandra:latest
+    build: .
+    image: cassandra:3.11
     container_name: cassandra-dev
     ports:
       - "9042:9042"
     volumes:
       - cassandra_data:/var/lib/cassandra
     environment:
-      - CASSANDRA_CLUSTER_NAME=DevCluster
-
+      CASSANDRA_ENABLE_USER_DEFINED_FUNCTIONS: true
 volumes:
   cassandra_data:
