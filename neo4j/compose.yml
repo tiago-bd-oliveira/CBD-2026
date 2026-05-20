@@ -1,0 +1,17 @@
+services:
+  neo4j:
+    image: neo4j:latest
+    container_name: neo4j-ce
+    ports:
+      - "7474:7474" # HTTP Web UI
+      - "7687:7687" # Bolt Protocol
+    volumes:
+      - ./neo4j/data:/data
+      - ./neo4j/logs:/logs
+      - ./neo4j/import:/import
+      - ./neo4j/plugins:/plugins
+    environment:
+      - NEO4J_AUTH=neo4j/admin123
+      # Optional: Enable APOC plugins if you need them later
+      - NEO4J_PLUGINS=["apoc"]
+    restart: always
