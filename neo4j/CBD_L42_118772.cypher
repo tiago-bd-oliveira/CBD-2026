@@ -59,4 +59,65 @@ MATCH path=shortestPath(
 )
 RETURN length(path)
 
+// 11
+MATCH (p1:Person), (p2:Person)
+WHERE (p1.name STARTS WITH "Jim ")
+  AND (p2.name STARTS WITH "Kevin ")
+MATCH path = shortestPath((p1)-[*]-(p2))
+RETURN path, length(path) AS len
+ORDER BY len ASC
+LIMIT 1
 
+// 12
+MATCH path=shortestPath(
+  (p:Person)-[*]-(jim:Person {name: "Jim Cash"})
+)
+WHERE p <> jim
+WITH p, length(path) as distance
+WHERE distance = 2
+RETURN p.name
+
+// 13
+MATCH path=shortestPath(
+  (p:Person)-[*]-(kev:Person {name: "Kevin Bacon"})
+)
+WHERE p <> kev
+WITH p, path, length(path) as distance
+RETURN p.name, distance
+ORDER BY distance DESC
+LIMIT 1
+
+// 14
+MATCH path=shortestPath(
+  (p1:Person)-[*]-(p2:Person)
+)
+WHERE p1 <> p2
+WITH p1, p2, length(path) as distance
+RETURN p1.name, p2.name, distance
+ORDER BY distance DESC
+LIMIT 1
+
+// 15
+MATCH path=shortestPath(
+  (p1:Person)-[*]-(p2:Person)
+)
+WHERE p1 <> p2
+WITH count(p1.name + p2.name) AS pair_count, length(path) AS distance
+ORDER BY distance ASC
+RETURN distance, pair_count
+
+// 16
+MATCH path=shortestPath(
+  (p1:Person)-[:ACTED_IN*]-(p2:Person)
+)
+WHERE p1 <> p2
+WITH p1, p2, length(path) as distance
+WITH p1, avg(distance) as avg_distance
+ORDER BY avg_distance ASC
+LIMIT 10
+RETURN p1.name, avg_distance  
+
+// 17
+MATCH (p:Person)-[r:ACTED_IN]->(:Movie)
+WHERE ANY(role IN r.roles WHERE role STARTS WITH "Dr.")
+RETURN p.name, r.roles
