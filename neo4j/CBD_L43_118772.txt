@@ -38,44 +38,44 @@ FOREACH (oName IN CASE WHEN orgName IS NOT NULL AND orgName <> "NA" AND orgName 
     MERGE (person)-[:WORKS_FOR]->(org)
 )
 
-// 1
+# 1
 MATCH (p:Person)
 RETURN p
 
-// 2
+# 2
 MATCH (p:Person)
 RETURN p.name
 
-// 3
+# 3
 MATCH (pr:Project)<-[:CONTRIBUTED]-(p:Person)
 WITH pr, count(p) as n_people
 WHERE nPeople > 0
 RETURN pr.name, n_people
 
-// 4 + 5
+# 4 + 5
 MATCH (p:Person)-[:CONTRIBUTED]->(pr:Project)
 WITH p, count(pr) as n_projects
 ORDER BY n_projects DESC
 RETURN p.name, n_projects
 
-// 6 
+# 6 
 MATCH (pr:Project)<-[:CONTRIBUTED]-(p:Person)
 WITH pr, count(p) as n_people
 RETURN pr.name, n_people
 
-// 7
+# 7
 MATCH (pr:Project)<-[r:CONTRIBUTED]-(p:Person)
 WHERE "Committer" IN r.roles
 WITH pr, count(p) as n_committers
 RETURN pr.name, n_committers
 
-// 8
+# 8
 MATCH (p:Person)-[:CONTRIBUTED]->(pr:Project)<-[:CONTRIBUTED {svn_id: "atm"}]-(atm:Person)
 WHERE p <> atm
 WITH atm, p, pr
 RETURN atm.name, p.name, pr.name
 
-// 9
+# 9
 MATCH (p:Person)-[r:CONTRIBUTED]->(pr:Project)<-[r_atm:CONTRIBUTED {svn_id: "atm"}]-(atm:Person)
 WHERE p <> atm
 AND "Committer" IN r.roles
